@@ -71,12 +71,45 @@
               <li><a href="about.html">About Us</a></li>
               <li><a href="recruiters.html">Major Recruiters</a></li>
               <li><a href="events.html">Events and News</a></li>
-              <li><a href="#">Login</a></li>
+              <li style="cursor: pointer;"><a data-toggle="modal" data-target="#loginModal">Login</a></li>
               <li><a href="contact.html">Contact</a></li>
             </ul>
           </div>
         </div>
       </nav>
+
+      <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">Login</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+            <form action="/login_server" method="post">
+          <div class="modal-body">
+                 <div class="form-group row">
+                    <label for="emailid" class="col-sm-4 col-form-label">Enrollment No : </label>
+                    <div class="col-sm-8">
+                      <input type="email" class="form-control" name="emailid" placeholder="Email ID">
+                    </div>
+                  </div>
+                <div class="form-group row">
+                    <label for="password" class="col-sm-4 col-form-label">Password : </label>
+                    <div class="col-sm-8">
+                      <input type="password" name="password" class="form-control" placeholder="Enter Your Password">
+                    </div>
+                </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div></form>
+        </div>
+      </div>
+    </div>
 
       <section class="flexslider">
         <ul class="slides">
@@ -178,7 +211,7 @@
                   <span class="probootstrap-counter">
                     <span class="js-counter" data-from="0" data-to="139" data-speed="5000" data-refresh-interval="50">1</span>
                   </span>
-                  <span class="probootstrap-counter-label">Certified Teachers</span>
+                  <span class="probootstrap-counter-label">Students Placed</span>
                 </div>
               </div>
             </div>
@@ -192,7 +225,7 @@
                   <span class="probootstrap-counter">
                     <span class="js-counter" data-from="0" data-to="99" data-speed="5000" data-refresh-interval="50">1</span>%
                   </span>
-                  <span class="probootstrap-counter-label">Passing to Universities</span>
+                  <span class="probootstrap-counter-label">Student Placed Percentage</span>
                 </div>
               </div>
             </div>
