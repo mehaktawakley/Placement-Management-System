@@ -5,22 +5,22 @@ app=Flask(__name__)
 app.config["CACHE_TYPE"] = "null"
 app.secret_key = os.urandom(24)
 
-"""
+
 @app.route("/login_server", methods=["POST"])
 def login_server():
 	if request.method == "POST":
 		emailid = request.form['emailid']
 		password = request.form['password']
-		con = sql.connect("static/datab.db")
+		con = sql.connect("static/test.db")
 		cur = con.cursor()
 		print(emailid)
 		emailid = emailid.lower()
 		#try:
-		cur.execute("select password from users where email = ?",(emailid,))
+		cur.execute("select password from student where email = ?",(emailid,))
 		a = cur.fetchone();
 		ta=str(a)
 		output=ta[2:-3]
-		cur.execute("select name from users where email = ?",(emailid,))
+		cur.execute("select name from student where email = ?",(emailid,))
 		b = cur.fetchone();
 		cur.close()
 		con.close()
@@ -31,9 +31,9 @@ def login_server():
 		if request.form['password'] == output and output != '':
 			session['user'] = name
 			print('session name = ',session['user'])
-			return redirect('/')
+			return ("<h1 class='display-1 text-center'>Login Successful</h1><br><a href='/'>Go to Home Page</a>")
 		else:
-			return render_template("index.html",login_modal=True)
+			return ("<h1 class='display-1 text-center'>Invalid Credentials</h1><br><a href='/'>Go to Home Page</a>")
 		#except:
 			#return ("<h1 class='display-1 text-center'>Invalid Credentials</h1><br><a href='/'>Go to Home Page</a>")
 
@@ -47,7 +47,7 @@ def before_request():
 @app.route('/logout')
 def logout():
   session.pop('user', None)
-  return redirect('/')"""
+  return redirect('/')
 
 @app.route("/")
 def index():
