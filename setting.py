@@ -55,7 +55,25 @@ def index():
 		print(session['user'])
 		return render_template("index1.html",UserName = session['user'])"""
 	return render_template("index.html")
+
+@app.route('/about.html')
+def about():
+   return render_template("about.html")
+
+@app.route('/recruiters.html')
+def recruiters():
+   return render_template("recruiters.html")
+
+@app.route('/events.html')
+def events():
+   return render_template("events.html")
+
+@app.route('/contact.html')
+def contact():
+   return render_template("contact.html")
+
 """
+
 @app.route('/result',methods = ['POST', 'GET'])
 def result():
    if request.method == 'POST':

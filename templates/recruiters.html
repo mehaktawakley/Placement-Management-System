@@ -16,9 +16,9 @@
     <meta name="keywords" content="placment, placement cell, interviews, companies, in-house placments, campus, campus placements">
     
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700|Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles-merged.css">
-    <link rel="stylesheet" href="css/style.min.css">
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='css/styles-merged.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='css/style.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='css/custom.css')}}">
 
     <!--[if lt IE 9]>
       <script src="js/vendor/html5shiv.min.js"></script>
@@ -67,16 +67,49 @@
 
           <div id="navbar-collapse" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="index.html">Home</a></li>
+              <li><a href="/">Home</a></li>
               <li><a href="about.html">About Us</a></li>
               <li class="active"><a href="recruiters.html">Major Recruiters</a></li>
-              <li><a href="events.html">Events and News</a></li>
-              <li><a href="#">Login</a></li>
+              <li><a href="#">Events and News</a></li>
+              <li style="cursor: pointer;"><a data-toggle="modal" data-target="#loginModal">Login</a></li>
               <li><a href="contact.html">Contact</a></li>
             </ul>
           </div>
         </div>
       </nav>
+
+      <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">Login</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+            <form action="/login_server" method="post">
+          <div class="modal-body">
+                 <div class="form-group row">
+                    <label for="emailid" class="col-sm-4 col-form-label">Enrollment No : </label>
+                    <div class="col-sm-8">
+                      <input type="email" class="form-control" name="emailid" placeholder="Email ID">
+                    </div>
+                  </div>
+                <div class="form-group row">
+                    <label for="password" class="col-sm-4 col-form-label">Password : </label>
+                    <div class="col-sm-8">
+                      <input type="password" name="password" class="form-control" placeholder="Enter Your Password">
+                    </div>
+                </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div></form>
+        </div>
+      </div>
+    </div>
       
       <section class="probootstrap-section probootstrap-section-colored">
         <div class="container">
@@ -98,7 +131,7 @@
                   <p>Our main aim is to help students in finding a company where they can utilize their skills best. It order to help them in taking their first step in this professional world, we have collaborated with few finest companies of the world. Following are some major recruiters.</p>
                 </div>
                 <div class="probootstrap-image probootstrap-animate" style="background-image: url(img/slider_3.jpg); width:35%; margin: auto;">
-                  <img src="img/img/all.jpg">
+                  <img src="../static/img/img/all.jpg">
       </section>
 
 
@@ -112,7 +145,7 @@
             <div class="col-md-3 col-sm-6">
               <div class="probootstrap-teacher text-center probootstrap-animate">
                 <figure class="media">
-                  <img src="img/img/Deloitte.png" alt="Deloitte" class="img-responsive">
+                  <img src="../static/img/img/Deloitte.png" alt="Deloitte" class="img-responsive">
                 </figure>
                 <div class="text">
                   <h3 style="font-size: 15px; font-weight: bold;">Deloitte Consulting LLC</h3>
@@ -123,7 +156,7 @@
             <div class="col-md-3 col-sm-6">
               <div class="probootstrap-teacher text-center probootstrap-animate">
                 <figure class="media">
-                  <img src="img/img/MahindraComviva.png" alt="Mahindra Comviva" class="img-responsive">
+                  <img src="../static/img/img/MahindraComviva.png" alt="Mahindra Comviva" class="img-responsive">
                 </figure>
                 <div class="text">
                   <h3 style="font-size: 15px; font-weight: bold;">Mahindra Comviva</h3>
@@ -135,7 +168,7 @@
             <div class="col-md-3 col-sm-6">
               <div class="probootstrap-teacher text-center probootstrap-animate">
                 <figure class="media">
-                  <img src="img/img/ZSAssociates.jpg" alt="ZSAssociates" class="img-responsive">
+                  <img src="../static/img/img/ZSAssociates.jpg" alt="ZSAssociates" class="img-responsive">
                 </figure>
                 <div class="text">
                   <h3 style="font-size: 15px; font-weight: bold;">ZS Associate</h3>
@@ -146,7 +179,7 @@
             <div class="col-md-3 col-sm-6">
               <div class="probootstrap-teacher text-center probootstrap-animate">
                 <figure class="media">
-                  <img src="img/img/genpact.png" alt="Genpact" class="img-responsive">
+                  <img src="../static/img/img/genpact.png" alt="Genpact" class="img-responsive">
                 </figure>
                 <div class="text">
                   <h3 style="font-size: 15px; font-weight: bold;">Genpact</h3>
@@ -160,7 +193,7 @@
             <div class="col-md-3 col-sm-6">
               <div class="probootstrap-teacher text-center probootstrap-animate">
                 <figure class="media">
-                  <img src="img/img/alight.jpg" alt="Alight" class="img-responsive">
+                  <img src="../static/img/img/alight.jpg" alt="Alight" class="img-responsive">
                 </figure>
                 <div class="text">
                   <h3 style="font-size: 15px; font-weight: bold;">Alight (Aon Hewitt)</h3>
@@ -171,7 +204,7 @@
             <div class="col-md-3 col-sm-6">
               <div class="probootstrap-teacher text-center probootstrap-animate">
                 <figure class="media">
-                  <img src="img/img/amazon.png" alt="Amazon" class="img-responsive">
+                  <img src="../static/img/img/amazon.png" alt="Amazon" class="img-responsive">
                 </figure>
                 <div class="text">
                   <h3 style="font-size: 15px; font-weight: bold;">Amazon</h3>
@@ -183,7 +216,7 @@
             <div class="col-md-3 col-sm-6">
               <div class="probootstrap-teacher text-center probootstrap-animate">
                 <figure class="media">
-                  <img src="img/img/elitmus.png" alt="Elitmus" class="img-responsive">
+                  <img src="../static/img/img/elitmus.png" alt="Elitmus" class="img-responsive">
                 </figure>
                 <div class="text">
                   <h3 style="font-size: 15px; font-weight: bold;">Elitmus</h3>
@@ -194,7 +227,7 @@
             <div class="col-md-3 col-sm-6">
               <div class="probootstrap-teacher text-center probootstrap-animate">
                 <figure class="media">
-                  <img src="img/img/rbs.png" alt="RBS" class="img-responsive">
+                  <img src="../static/img/img/rbs.png" alt="RBS" class="img-responsive">
                 </figure>
                 <div class="text">
                   <h3 style="font-size: 15px; font-weight: bold;">Royal Bank of Scotland</h3>
@@ -208,7 +241,7 @@
             <div class="col-md-3 col-sm-6">
               <div class="probootstrap-teacher text-center probootstrap-animate">
                 <figure class="media">
-                  <img src="img/img/metlife.jpg" alt="MetLife" class="img-responsive">
+                  <img src="../static/img/img/metlife.jpg" alt="MetLife" class="img-responsive">
                 </figure>
                 <div class="text">
                   <h3 style="font-size: 15px; font-weight: bold;">MetLife</h3>
@@ -219,7 +252,7 @@
             <div class="col-md-3 col-sm-6">
               <div class="probootstrap-teacher text-center probootstrap-animate">
                 <figure class="media">
-                  <img src="img/img/IBM.jpg" alt="IBM" class="img-responsive">
+                  <img src="../static/img/img/IBM.jpg" alt="IBM" class="img-responsive">
                 </figure>
                 <div class="text">
                   <h3 style="font-size: 15px; font-weight: bold;">IBM</h3>
@@ -231,7 +264,7 @@
             <div class="col-md-3 col-sm-6">
               <div class="probootstrap-teacher text-center probootstrap-animate">
                 <figure class="media">
-                  <img src="img/img/Infosys.jpg" alt="Infosys" class="img-responsive">
+                  <img src="../static/img/img/Infosys.jpg" alt="Infosys" class="img-responsive">
                 </figure>
                 <div class="text">
                   <h3 style="font-size: 15px; font-weight: bold;">Infosys</h3>
@@ -242,7 +275,7 @@
             <div class="col-md-3 col-sm-6">
               <div class="probootstrap-teacher text-center probootstrap-animate">
                 <figure class="media">
-                  <img src="img/img/BT.png" alt="BT India" class="img-responsive">
+                  <img src="../static/img/img/BT.png" alt="BT India" class="img-responsive">
                 </figure>
                 <div class="text">
                   <h3 style="font-size: 15px; font-weight: bold;">BT India</h3>
@@ -256,7 +289,7 @@
             <div class="col-md-3 col-sm-6">
               <div class="probootstrap-teacher text-center probootstrap-animate">
                 <figure class="media">
-                  <img src="img/img/jaro.jpg" alt="Jaro Education" class="img-responsive">
+                  <img src="../static/img/img/jaro.jpg" alt="Jaro Education" class="img-responsive">
                 </figure>
                 <div class="text">
                   <h3 style="font-size: 15px; font-weight: bold;">Jaro Education</h3>
@@ -267,7 +300,7 @@
             <div class="col-md-3 col-sm-6">
               <div class="probootstrap-teacher text-center probootstrap-animate">
                 <figure class="media">
-                  <img src="img/img/PolicyBazaar.png" alt="Policy Bazaar" class="img-responsive">
+                  <img src="../static/img/img/PolicyBazaar.png" alt="Policy Bazaar" class="img-responsive">
                 </figure>
                 <div class="text">
                   <h3 style="font-size: 15px; font-weight: bold;">Policy Bazaar</h3>
@@ -279,7 +312,7 @@
             <div class="col-md-3 col-sm-6">
               <div class="probootstrap-teacher text-center probootstrap-animate">
                 <figure class="media">
-                  <img src="img/img/nityo.png" alt="Nityo Infotech" class="img-responsive">
+                  <img src="../static/img/img/nityo.png" alt="Nityo Infotech" class="img-responsive">
                 </figure>
                 <div class="text">
                   <h3 style="font-size: 15px; font-weight: bold;">Nityo Infotech</h3>
@@ -290,7 +323,7 @@
             <div class="col-md-3 col-sm-6">
               <div class="probootstrap-teacher text-center probootstrap-animate">
                 <figure class="media">
-                  <img src="img/img/TCs.png" alt="Tata Consultancy Services" class="img-responsive">
+                  <img src="../static/img/img/TCs.png" alt="Tata Consultancy Services" class="img-responsive">
                 </figure>
                 <div class="text">
                   <h3 style="font-size: 15px; font-weight: bold;">TCS</h3>
@@ -301,7 +334,7 @@
             <div class="col-md-3 col-sm-6">
               <div class="probootstrap-teacher text-center probootstrap-animate">
                 <figure class="media">
-                  <img src="img/img/wipro.jpg" alt="Wipro" class="img-responsive">
+                  <img src="../static/img/img/wipro.jpg" alt="Wipro" class="img-responsive">
                 </figure>
                 <div class="text">
                   <h3 style="font-size: 15px; font-weight: bold;">Wipro</h3>
@@ -312,7 +345,7 @@
             <div class="col-md-3 col-sm-6">
               <div class="probootstrap-teacher text-center probootstrap-animate">
                 <figure class="media">
-                  <img src="img/img/Convergys.png" alt="Convergys" class="img-responsive">
+                  <img src="../static/img/img/Convergys.png" alt="Convergys" class="img-responsive">
                 </figure>
                 <div class="text">
                   <h3 style="font-size: 15px; font-weight: bold;">Convergys</h3>
@@ -323,7 +356,7 @@
             <div class="col-md-3 col-sm-6">
               <div class="probootstrap-teacher text-center probootstrap-animate">
                 <figure class="media">
-                  <img src="img/img/Capgemini.jpg" alt="Capgemini" class="img-responsive">
+                  <img src="../static/img/img/Capgemini.jpg" alt="Capgemini" class="img-responsive">
                 </figure>
                 <div class="text">
                   <h3 style="font-size: 15px; font-weight: bold;">Capgemini</h3>
@@ -341,7 +374,7 @@
           <div class="row">
             <div class="col-md-12">
               <h2 class="probootstrap-animate" data-animate-effect="fadeInRight">Sit For Placements!</h2>
-              <a href="#" role="button" class="btn btn-primary btn-lg btn-ghost probootstrap-animate" data-animate-effect="fadeInLeft">Login</a>
+              <a data-toggle="modal" data-target="#loginModal" role="button" class="btn btn-primary btn-lg btn-ghost probootstrap-animate" data-animate-effect="fadeInLeft">Login</a>
             </div>
           </div>
         </div>
@@ -366,11 +399,11 @@
               <div class="probootstrap-footer-widget">
                 <h3>Links</h3>
                 <ul>
-                  <li><a href="index.html">Home</a></li>
+                  <li><a href="/">Home</a></li>
                   <li><a href="about.html">About Us</a></li>
                   <li><a href="recruiters.html">Major Recruiters</a></li>
-                  <li><a href="events.html">Events and News</a></li>
-                  <li><a href="#">Login</a></li>
+                  <li><a href="#">Events and News</a></li>
+                  <li style="cursor: pointer;"><a data-toggle="modal" data-target="#loginModal">Login</a></li>
                   <li><a href="contact.html">Contact</a></li>
                 </ul>
               </div>
@@ -395,7 +428,7 @@
           <div class="container">
             <div class="row">
               <div class="col-md-8 text-left">
-                <p>&copy; 2017 All Rights Reserved.</p>
+                <p>&copy; 2018 All Rights Reserved.</p>
               </div>
               <div class="col-md-4 probootstrap-back-to-top">
                 <p><a href="#" class="js-backtotop">Back to top <i class="icon-arrow-long-up"></i></a></p>
@@ -410,9 +443,9 @@
     <!-- END wrapper -->
     
 
-    <script src="js/scripts.min.js"></script>
-    <script src="js/main.min.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="../static/js/scripts.min.js"></script>
+    <script src="../static/js/main.min.js"></script>
+    <script src="../static/js/custom.js"></script>
 
   </body>
 </html>

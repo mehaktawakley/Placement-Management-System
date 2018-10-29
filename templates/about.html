@@ -11,14 +11,14 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Placement Cell | About Us</title>
+    <title>The Placement Cell</title>
     <meta name="description" content="Free Bootstrap Theme by ProBootstrap.com">
-    <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
+    <meta name="keywords" content="placment, placement cell, interviews, companies, in-house placments, campus, campus placements">
     
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700|Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles-merged.css">
-    <link rel="stylesheet" href="css/style.min.css">
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='css/styles-merged.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='css/style.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='css/custom.css')}}">
 
     <!--[if lt IE 9]>
       <script src="js/vendor/html5shiv.min.js"></script>
@@ -66,16 +66,49 @@
 
           <div id="navbar-collapse" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="index.html">Home</a></li>
+              <li><a href="/">Home</a></li>
               <li class="active"><a href="about.html">About Us</a></li>
               <li><a href="recruiters.html">Major Recruiters</a></li>
-              <li><a href="events.html">Events and News</a></li>
-              <li><a href="#">Pages</a></li>
+              <li><a href="#">Events and News</a></li>
+              <li style="cursor: pointer;"><a data-toggle="modal" data-target="#loginModal">Login</a></li>
               <li><a href="contact.html">Contact</a></li>
             </ul>
           </div>
         </div>
       </nav>
+
+      <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">Login</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+            <form action="/login_server" method="post">
+          <div class="modal-body">
+                 <div class="form-group row">
+                    <label for="emailid" class="col-sm-4 col-form-label">Enrollment No : </label>
+                    <div class="col-sm-8">
+                      <input type="email" class="form-control" name="emailid" placeholder="Email ID">
+                    </div>
+                  </div>
+                <div class="form-group row">
+                    <label for="password" class="col-sm-4 col-form-label">Password : </label>
+                    <div class="col-sm-8">
+                      <input type="password" name="password" class="form-control" placeholder="Enter Your Password">
+                    </div>
+                </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div></form>
+        </div>
+      </div>
+    </div>
       
       <section class="probootstrap-section probootstrap-section-colored">
         <div class="container">
@@ -92,7 +125,7 @@
           
           <div class="col-md-6">
             <p>
-              <img src="img/slider_1.jpg" alt="" class="img-responsive">
+              <img src="../static/img/img/cq.jpg" alt="" class="img-responsive">
             </p>
           </div>
           <div class="col-md-6 col-md-push-1">
@@ -173,7 +206,7 @@
           <div class="row">
             <div class="col-md-12">
               <h2 class="probootstrap-animate" data-animate-effect="fadeInRight">Sit For Placements!</h2>
-              <a href="#" role="button" class="btn btn-primary btn-lg btn-ghost probootstrap-animate" data-animate-effect="fadeInLeft">Login</a>
+              <a data-toggle="modal" data-target="#loginModal" role="button" class="btn btn-primary btn-lg btn-ghost probootstrap-animate" data-animate-effect="fadeInLeft">Login</a>
             </div>
           </div>
         </div>
@@ -198,11 +231,11 @@
               <div class="probootstrap-footer-widget">
                 <h3>Links</h3>
                 <ul>
-                  <li><a href="index.html">Home</a></li>
+                  <li><a href="/">Home</a></li>
                   <li><a href="about.html">About Us</a></li>
                   <li><a href="recruiters.html">Major Recruiters</a></li>
-                  <li><a href="events.html">Events and News</a></li>
-                  <li><a href="#">Login</a></li>
+                  <li><a href="#">Events and News</a></li>
+                  <li style="cursor: pointer;"><a data-toggle="modal" data-target="#loginModal">Login</a></li>
                   <li><a href="contact.html">Contact</a></li>
                 </ul>
               </div>
@@ -241,9 +274,9 @@
     <!-- END wrapper -->
     
 
-    <script src="js/scripts.min.js"></script>
-    <script src="js/main.min.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="../static/js/scripts.min.js"></script>
+    <script src="../static/js/main.min.js"></script>
+    <script src="../static/js/custom.js"></script>
 
   </body>
 </html>

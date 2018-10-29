@@ -16,9 +16,9 @@
     <meta name="keywords" content="placment, placement cell, interviews, companies, in-house placments, campus, campus placements">
     
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700|Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles-merged.css">
-    <link rel="stylesheet" href="css/style.min.css">
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='css/styles-merged.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='css/style.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='css/custom.css')}}">
 
     <!--[if lt IE 9]>
       <script src="js/vendor/html5shiv.min.js"></script>
@@ -67,7 +67,7 @@
 
           <div id="navbar-collapse" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="index.html">Home</a></li>
+              <li><a href="/">Home</a></li>
               <li><a href="about.html">About Us</a></li>
               <li><a href="recruiters.html">Major Recruiters</a></li>
               <li class="active"><a href="events.html">Events and News</a></li>
@@ -283,9 +283,9 @@
     <!-- END wrapper -->
     
 
-    <script src="js/scripts.min.js"></script>
-    <script src="js/main.min.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="../static/js/scripts.min.js"></script>
+    <script src="../static/js/main.min.js"></script>
+    <script src="../static/js/custom.js"></script>
 
   </body>
 </html>
