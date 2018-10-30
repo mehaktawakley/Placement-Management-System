@@ -16,9 +16,9 @@
     <meta name="keywords" content="placment, placement cell, interviews, companies, in-house placments, campus, campus placements">
     
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700|Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles-merged.css">
-    <link rel="stylesheet" href="css/style.min.css">
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='css/styles-merged.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='css/style.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='css/custom.css')}}">
 
     <!--[if lt IE 9]>
       <script src="js/vendor/html5shiv.min.js"></script>
@@ -67,16 +67,49 @@
 
           <div id="navbar-collapse" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="index.html">Home</a></li>
+              <li><a href="/">Home</a></li>
               <li><a href="about.html">About Us</a></li>
               <li><a href="recruiters.html">Major Recruiters</a></li>
-              <li><a href="events.html">Events and News</a></li>
-              <li><a href="#">Login</a></li>
+              <li><a href="#">Events and News</a></li>
+              <li style="cursor: pointer;"><a data-toggle="modal" data-target="#loginModal">Login</a></li>
               <li class="active"><a href="contact.html">Contact</a></li>
             </ul>
           </div>
         </div>
       </nav>
+
+      <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">Login</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+            <form action="/login_server" method="post">
+          <div class="modal-body">
+                 <div class="form-group row">
+                    <label for="emailid" class="col-sm-4 col-form-label">Enrollment No : </label>
+                    <div class="col-sm-8">
+                      <input type="email" class="form-control" name="emailid" placeholder="Email ID">
+                    </div>
+                  </div>
+                <div class="form-group row">
+                    <label for="password" class="col-sm-4 col-form-label">Password : </label>
+                    <div class="col-sm-8">
+                      <input type="password" name="password" class="form-control" placeholder="Enter Your Password">
+                    </div>
+                </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div></form>
+        </div>
+      </div>
+    </div>
       
       <section class="probootstrap-section probootstrap-section-colored">
         <div class="container">
@@ -107,26 +140,26 @@
                 <div class="col-md-7 col-md-push-1  probootstrap-animate" id="probootstrap-content">
                   <h2>Get In Touch</h2>
                   <p>Contact us using the form below.</p>
-                  <form action="#" method="post" class="probootstrap-form">
+                  <form action="/cmessage" method="post" class="probootstrap-form">
                     <div class="form-group">
                       <label for="name">Full Name</label>
-                      <input type="text" class="form-control" id="name" name="name">
+                      <input type="text" class="form-control" id="name" name="name" required>
                     </div>
                     <div class="form-group">
                       <label for="enrollno">Enrollment Number</label>
-                      <input type="number" minlenght="11" maxlength="11" class="form-control" id="enrollno" name="enrollno">
+                      <input type="number" minlenght=11 maxlength=11 class="form-control" id="enrollno" name="enrollno" required>
                     </div>
                     <div class="form-group">
                       <label for="email">Email</label>
-                      <input type="email" class="form-control" id="email" name="email">
+                      <input type="email" class="form-control" id="email" name="email" required>
                     </div>
                     <div class="form-group">
                       <label for="subject">Subject</label>
-                      <input type="text" class="form-control" id="subject" name="subject">
+                      <input type="text" class="form-control" id="subject" name="subject" required>
                     </div>
                     <div class="form-group">
                       <label for="message">Message</label>
-                      <textarea cols="30" rows="10" class="form-control" id="message" name="message"></textarea>
+                      <textarea cols="30" rows="10" class="form-control" id="message" name="message" required></textarea>
                     </div>
                     <div class="form-group">
                       <input type="submit" class="btn btn-primary btn-lg" id="submit" name="submit" value="Send Message">
@@ -144,7 +177,7 @@
           <div class="row">
             <div class="col-md-12">
               <h2 class="probootstrap-animate" data-animate-effect="fadeInRight">Sit For Placements!</h2>
-              <a href="#" role="button" class="btn btn-primary btn-lg btn-ghost probootstrap-animate" data-animate-effect="fadeInLeft">Login</a>
+              <a data-toggle="modal" data-target="#loginModal" role="button" class="btn btn-primary btn-lg btn-ghost probootstrap-animate" data-animate-effect="fadeInLeft">Login</a>
             </div>
           </div>
         </div>
@@ -169,11 +202,11 @@
               <div class="probootstrap-footer-widget">
                 <h3>Links</h3>
                 <ul>
-                  <li><a href="index.html">Home</a></li>
+                  <li><a href="/">Home</a></li>
                   <li><a href="about.html">About Us</a></li>
                   <li><a href="recruiters.html">Major Recruiters</a></li>
-                  <li><a href="events.html">Events and News</a></li>
-                  <li><a href="#">Login</a></li>
+                  <li><a href="#">Events and News</a></li>
+                  <li style="cursor: pointer;"><a data-toggle="modal" data-target="#loginModal">Login</a></li>
                   <li><a href="contact.html">Contact</a></li>
                 </ul>
               </div>
@@ -208,13 +241,39 @@
         </div>
       </footer>
 
+
+    </div>
+    
+    {% if c_modal %}
+    <script type="text/javascript">
+      document.getElementById('test').click();
+    </script>
+    {% endif %}
+    <div style="display: none;">
+      <a data-toggle="modal" data-target="#c1_modal" id="test"></a>
     </div>
     <!-- END wrapper -->
+    <div class="modal fade" id="c1_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">Message Sent Successfully</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+            
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     
 
-    <script src="js/scripts.min.js"></script>
-    <script src="js/main.min.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="../static/js/scripts.min.js"></script>
+    <script src="../static/js/main.min.js"></script>
+    <script src="../static/js/custom.js"></script>
 
   </body>
 </html>
