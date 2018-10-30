@@ -72,6 +72,27 @@ def events():
 def contact():
    return render_template("contact.html")
 
+@app.route('/student.html')
+def student():
+   return render_template("student.html")
+
+@app.route("/cmessage", methods=["POST"])
+def cmessage():
+   if request.method == "POST":
+      name = request.form['name']
+      enrollno = int(request.form['enrollno'])
+      email = request.form['email']
+      subject = request.form['subject']
+      message = request.form['message']
+      con = sql.connect("static/test.db")
+      cur = con.cursor()
+      cur.execute("INSERT INTO contact(name,enrollment,email,subject,message)VALUES (?,?,?,?,?)",(name,enrollno,email,subject,message))
+      print(name,enrollno,email,subject,message)
+      con.commit()
+      cur.close()
+      con.close()
+      return render_template("contact.html",c_modal=True)
+
 """
 
 @app.route('/result',methods = ['POST', 'GET'])

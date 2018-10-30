@@ -140,26 +140,26 @@
                 <div class="col-md-7 col-md-push-1  probootstrap-animate" id="probootstrap-content">
                   <h2>Get In Touch</h2>
                   <p>Contact us using the form below.</p>
-                  <form action="#" method="post" class="probootstrap-form">
+                  <form action="/cmessage" method="post" class="probootstrap-form">
                     <div class="form-group">
                       <label for="name">Full Name</label>
-                      <input type="text" class="form-control" id="name" name="name">
+                      <input type="text" class="form-control" id="name" name="name" required>
                     </div>
                     <div class="form-group">
                       <label for="enrollno">Enrollment Number</label>
-                      <input type="number" minlenght="11" maxlength="11" class="form-control" id="enrollno" name="enrollno">
+                      <input type="number" minlenght=11 maxlength=11 class="form-control" id="enrollno" name="enrollno" required>
                     </div>
                     <div class="form-group">
                       <label for="email">Email</label>
-                      <input type="email" class="form-control" id="email" name="email">
+                      <input type="email" class="form-control" id="email" name="email" required>
                     </div>
                     <div class="form-group">
                       <label for="subject">Subject</label>
-                      <input type="text" class="form-control" id="subject" name="subject">
+                      <input type="text" class="form-control" id="subject" name="subject" required>
                     </div>
                     <div class="form-group">
                       <label for="message">Message</label>
-                      <textarea cols="30" rows="10" class="form-control" id="message" name="message"></textarea>
+                      <textarea cols="30" rows="10" class="form-control" id="message" name="message" required></textarea>
                     </div>
                     <div class="form-group">
                       <input type="submit" class="btn btn-primary btn-lg" id="submit" name="submit" value="Send Message">
@@ -243,7 +243,32 @@
 
 
     </div>
+    
+    {% if c_modal %}
+    <script type="text/javascript">
+      document.getElementById('test').click();
+    </script>
+    {% endif %}
+    <div style="display: none;">
+      <a data-toggle="modal" data-target="#c1_modal" id="test"></a>
+    </div>
     <!-- END wrapper -->
+    <div class="modal fade" id="c1_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">Message Sent Successfully</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+            
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     
 
     <script src="../static/js/scripts.min.js"></script>
