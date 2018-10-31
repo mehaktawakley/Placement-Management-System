@@ -71,7 +71,9 @@ def contact():
 
 @app.route('/student')
 def student():
-   return render_template("student.html")
+	if 'user' in session:
+		return render_template("student.html",un=(session['user']).title())
+	return redirect("/")
 
 @app.route("/cmessage", methods=["POST"])
 def cmessage():
