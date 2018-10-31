@@ -196,7 +196,7 @@
                       <div class="form-group">
                           <div class="col-xs-6">
                               <label for="dob"><h4>Date of Birth</h4></label>
-                              <input type="date" class="form-control" name="dob" id="dob" placeholder="Date of Birth">
+                              <input type="date" class="form-control" name="dob" id="dob" placeholder="Date of Birth" required>
                           </div>
                       </div>
 
@@ -252,8 +252,8 @@
                       <div class="form-group">
                           <div class="col-xs-6">
                             <label for="maths"><h4>Did you have Maths in 12<sup>th</sup>?</h4></label>
-                            <input type="radio" class="form-control" name="maths" id="maths" placeholder="Maths" value="With Maths" required>Yes<br>
-                            <input type="radio" class="form-control" name="maths" id="maths" placeholder="Non-Maths" value="Without Maths" required>No<br>
+                            <input type="radio" class="form-control" name="maths" id="maths" placeholder="Maths" value="With Maths" required>Yes
+                            <input type="radio" class="form-control" name="maths" id="maths" placeholder="Non-Maths" value="Without Maths" required>No
                           </div>
                       </div>                     
 
@@ -281,6 +281,28 @@
                           <div class="col-xs-12">
                             <label for="message">Career Objective</label>
                             <textarea cols="30" rows="5" type="text" class="form-control" id="careerobjective" name="careerobjective" required></textarea>
+                          </div>
+                      </div>
+
+                      <hr>
+
+                      <div class="form-group">
+                          <div class="col-xs-12">
+                            <label for="placement">Are you looking forward for gainful placement?</label>
+                            <input type="radio" class="form-control" name="placement" id="placement" placeholder="Interested" value="Interested" required onselect="f4()">Yes
+                            <input type="radio" class="form-control" name="placement" id="placement" placeholder="Not Interested" value="Not Interested" onselect="f5()" required>No
+                          </div>
+                      </div>
+
+                      <div class="form-group" id="interested" style="display: none;">
+                          <div class="col-xs-12">
+                            <label for="placement">Interested</label>
+                          </div>
+                      </div>
+
+                      <div class="form-group" id="notinterested" style="display: none;">
+                          <div class="col-xs-12">
+                            <label for="placement">Not Interested</label>
                           </div>
                       </div>
 
@@ -332,6 +354,18 @@
             x.style.display = "none";
             y.style.display = "none";
             z.style.display = "block";
+          }
+
+          var b = document.getElementById('interested')
+          var c = document.getElementById('notinterested')
+
+          function f4(argument) {
+            b.style.display = "block";
+            c.style.display = "none";
+          } 
+          function f5(argument) {
+            b.style.display = "none";
+            c.style.display = "block";
           }
         }
 
