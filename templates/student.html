@@ -107,21 +107,43 @@
           <a href="#"><strong><span class="fa fa-dashboard"></span> My Dashboard </strong></a>
           <hr>
           <form>
-            <label>Name:</label>
-            <input type="text" name="name" value="{{info[0]}}">
-            <label>Enrollment No:</label>
-            <input type="text" name="enrollmentno" value="{{info[1]}}">
-          </form>
+            <div class="form-group">                        
+                          <div class="col-xs-6">
+                              <label for="name"><h4>Full name</h4></label>
+                              <input type="text" class="form-control" name="name" id="name" placeholder="Name" value="{{info[0]}}" readonly required>
+                          </div>
+                      </div>
+
+                      <div class="form-group">                          
+                          <div class="col-xs-6">
+                            <label for="enrollno"><h4>Enrollment Number</h4></label>
+                              <input type="number" class="form-control" name="enrollno" id="enrollno" placeholder="Enrollment Number" value="{{info[1]}}" readonly required>
+                          </div>
+                      </div>
+          
+                      <div class="form-group">                          
+                          <div class="col-xs-6">
+                              <label for="course"><h4>Course</h4></label>
+                              <input type="text" class="form-control" name="course" id="course" placeholder="Course" value="{{info[2]}}" readonly required>
+                          </div>
+                      </div>
+
+                      <div class="form-group">                          
+                          <div class="col-xs-6">
+                              <label for="section"><h4>Section</h4></label>
+                              <input type="text" class="form-control" name="section" id="section" placeholder="Section" value="{{info[3]}}" readonly required>
+                          </div>
+                      </div>
         </div>
         
         <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12" id="my" style="display: none">
         <!-- Right -->
           <a href="#"><strong><span class="fa fa-dashboard"></span> My Form </strong></a>
           <hr>
-          <form class="form" action="##" method="post" id="placementForm">
-              <strong> Basic Details </strong>
-              <hr>
+          
           <form class="form" action="/studentf" method="post" id="placementForm">
+          <strong> Basic Details </strong>
+              <hr>
                       <div class="form-group">                        
                           <div class="col-xs-6">
                               <label for="name"><h4>Full name</h4></label>
@@ -171,13 +193,32 @@
                           </div>
                       </div>
 
-                      <div class="form-group" style="visibility: hidden;">
+                      <div class="form-group">
                           <div class="col-xs-6">
-                              <label for="password"><h4>Password</h4></label>
-                              <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
+                              <label for="dob"><h4>Date of Birth</h4></label>
+                              <input type="date" class="form-control" name="dob" id="dob" placeholder="Date of Birth">
                           </div>
                       </div>
 
+                  <hr>
+                  <strong> College Details </strong>
+                  <hr>
+
+                      <div class="form-group">
+                          <div class="col-xs-6">
+                            <label for="college"><h4>Percentage in Graduation (till 4<sup>th</sup>sem)</h4></label>
+                              <input type="text" class="form-control" name="college" id="college" placeholder="Percentage in College" required>
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+                          <div class="col-xs-6">
+                            <label for="backlogs"><h4>Number of Backlogs</h4></label>
+                              <input type="number" class="form-control" name="backlogs" id="backlogs" placeholder="Number of backlogs" required>
+                          </div>
+                      </div>
+
+                  <hr>
                   <strong> Class XII Details </strong>
                   <hr>
 
@@ -185,6 +226,13 @@
                           <div class="col-xs-6">
                             <label for="percent12"><h4>Percentage in XII</h4></label>
                               <input type="text" class="form-control" name="percent12" id="percent12" placeholder="Percentage in XII" required>
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+                          <div class="col-xs-6">
+                            <label for="py12"><h4>Year of passing of XII</h4></label>
+                            <input type="number" class="form-control" name="py12" id="py12" placeholder="Year of passing" required>
                           </div>
                       </div>
 
@@ -203,40 +251,38 @@
 
                       <div class="form-group">
                           <div class="col-xs-6">
-                            <label for="12thpy"><h4>Year of passing of XII</h4></label>
-                              <select type="text" class="form-control" name="12thpy" id="12thpy" placeholder="Year of passing" required>
-                                <option value="Commerce">Commerce</option>
-                                <option value="Science">Science</option>
-                                <option value="Humanities/Arts">Humanities/Arts</option>
-                                <option value="Information Technology">Information Technology</option>
-                                <option value="Other">Other</option>
-                              </select>
+                            <label for="maths"><h4>Did you have Maths in 12<sup>th</sup>?</h4></label>
+                            <input type="radio" class="form-control" name="maths" id="maths" placeholder="Maths" value="With Maths" required>Yes<br>
+                            <input type="radio" class="form-control" name="maths" id="maths" placeholder="Non-Maths" value="Without Maths" required>No<br>
                           </div>
-                      </div>
+                      </div>                     
+
+                  <hr>
+                  <strong> Class X Details </strong>
+                  <hr>
 
                       <div class="form-group">
                           <div class="col-xs-6">
-                            <label for="12thpy"><h4>Stream</h4></label>
-                              <input type="number" class="form-control" name="12thpy" id="12thpy" placeholder="Year of passing" required>
-                            <label for="py12"><h4>Year of passing of XII</h4></label>
-                              <input type="number" class="form-control" name="py12" id="py12" placeholder="Year of passing" required>
-                          </div>
-                      </div>
-                      
-                      <div class="form-group">
-                          <div class="col-xs-6">
                             <label for="percent10"><h4>Percentage in X</h4></label>
-                              <input type="number" class="form-control" name="percent10" id="percent10" placeholder="Percentage in X" value="{{info[7]}}" required>
+                              <input type="text" class="form-control" name="percent10" id="percent10" placeholder="Percentage in X" required>
                           </div>
                       </div>
                       
                       <div class="form-group">
                           <div class="col-xs-6">
                             <label for="py10"><h4>Year of passing of X</h4></label>
-                              <input type="number" class="form-control" name="py10" id="py10" placeholder="Year of passing" value="{{info[7]}}" required>
+                              <input type="number" class="form-control" name="py10" id="py10" placeholder="Year of passing" required>
                           </div>
                       </div>
 
+                  <hr>
+
+                      <div class="form-group">
+                          <div class="col-xs-12">
+                            <label for="message">Career Objective</label>
+                            <textarea cols="30" rows="5" type="text" class="form-control" id="careerobjective" name="careerobjective" required></textarea>
+                          </div>
+                      </div>
 
                       <div class="form-group">
                            <div class="col-xs-12">
