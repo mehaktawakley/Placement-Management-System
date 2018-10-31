@@ -77,12 +77,24 @@ def student():
 		con = sql.connect("static/test.db")
 		cur = con.cursor()
 		#try:
-		cur.execute("select name,enrollmentno from student where enrollmentno = ?",(session['enr'],))
+		cur.execute("select name,enrollmentno,course,section,contactno,email,batch from student where enrollmentno = ?",(session['enr'],))
 		inf = cur.fetchall();
 		inf = [j for i in inf for j in i]
 		cur.close()
 		con.close()
 		
+   if request.method == "POST":
+      12thpercent = request.form['12thpercent']
+      12thpy = request.form['12thpy']
+      10thpercent = request.form['10thpercent']
+      10thpy = request.form['10thpy']
+      con = sql.connect("static/test.db")
+      cur = con.cursor()
+      #try:
+      cur.execute("INSERT INTO student(12th,py12,10th,py10)VALUES (?,?,?,?)WHERE enrollmentno = ?",(12thpercent,12thpy,10thpercent,12thpy,session['enr']))
+      con.commit()
+      cur.close()
+      con.close()
 		return render_template("student.html",un=(session['user']).title(),info=inf)
 	return redirect("/")
 
