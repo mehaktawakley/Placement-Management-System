@@ -134,13 +134,13 @@
                               <input type="text" class="form-control" name="section" id="section" placeholder="Section" value="{{info[3]}}" readonly required>
                           </div>
                       </div>
+              </form>
         </div>
         
         <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12" id="my" style="display: none">
         <!-- Right -->
           <a href="#"><strong><span class="fa fa-dashboard"></span> My Form </strong></a>
           <hr>
-          
           <form class="form" action="/studentf" method="post" id="placementForm">
           <strong> Basic Details </strong>
               <hr>
@@ -252,8 +252,10 @@
                       <div class="form-group">
                           <div class="col-xs-6">
                             <label for="maths"><h4>Did you have Maths in 12<sup>th</sup>?</h4></label>
-                            <input type="radio" class="form-control" name="maths" id="maths" placeholder="Maths" value="With Maths" required>Yes
-                            <input type="radio" class="form-control" name="maths" id="maths" placeholder="Non-Maths" value="Without Maths" required>No
+                            <br>
+                            <input type="radio" name="maths" id="maths" placeholder="Maths" value="With Maths" required> Yes
+                            <br>
+                            <input type="radio" name="maths" id="maths" placeholder="Non-Maths" value="Without Maths" required> No
                           </div>
                       </div>                     
 
@@ -289,8 +291,10 @@
                       <div class="form-group">
                           <div class="col-xs-12">
                             <label for="placement">Are you looking forward for gainful placement?</label>
-                            <input type="radio" class="form-control" name="placement" id="placement" placeholder="Interested" value="Interested" required onselect="f4()">Yes
-                            <input type="radio" class="form-control" name="placement" id="placement" placeholder="Not Interested" value="Not Interested" onselect="f5()" required>No
+                            <br>
+                            <input type="radio" name="placement" id="placement" placeholder="Interested" value="Interested" required onclick="f4()"> Yes
+                            <br>
+                            <input type="radio" name="placement" id="placement" placeholder="Not Interested" value="Not Interested" onclick="f5()" required> No
                           </div>
                       </div>
 
@@ -309,8 +313,8 @@
                       <div class="form-group">
                            <div class="col-xs-12">
                                 <br>
-                                <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                                <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                                <button class="btn btn-lg btn-success" type="submit">Save</button>
+                                <button class="btn btn-lg" type="reset">Reset</button>
                             </div>
                       </div>
                 </form>
@@ -329,6 +333,8 @@
         var x = document.getElementById('db');
         var y = document.getElementById('my');
         var z = document.getElementById('cp');
+        var b = document.getElementById('interested')
+        var c = document.getElementById('notinterested')
 
         function f1(argument) {
           if (x.style.display === "none") 
@@ -355,18 +361,15 @@
             y.style.display = "none";
             z.style.display = "block";
           }
+        }
 
-          var b = document.getElementById('interested')
-          var c = document.getElementById('notinterested')
-
-          function f4(argument) {
-            b.style.display = "block";
-            c.style.display = "none";
-          } 
-          function f5(argument) {
-            b.style.display = "none";
-            c.style.display = "block";
-          }
+        function f4(argument) {
+          b.style.display = "block";
+          c.style.display = "none";
+        } 
+        function f5(argument) {
+          b.style.display = "none";
+          c.style.display = "block";
         }
 
       </script>
