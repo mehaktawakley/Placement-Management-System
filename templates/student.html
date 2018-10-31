@@ -84,19 +84,67 @@
         <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
           <ul class="nav nav-pills nav-stacked" style="border-right:1px solid black;">
             <!--<li class="nav-header"></li>-->
-            <li><a href="#db"><i class="icon-users"></i> Dashboard </a></li>
-            <li><a href="#rc"><i class="icon-pen"></i> My Form </a></li>
-            <li><a href="#"><i class="icon-lock"></i> Change Password</a></li>
+            <li onclick="f1()"><a href="#"><i class="icon-users"></i> Dashboard </a></li>
+            <li onclick="f2()"><a href="#"><i class="icon-pen"></i> My Form </a></li>
+            <li onclick="f3()"><a href="#"><i class="icon-lock"></i> Change Password </a></li>
           </ul>
         </div><!-- /span-3 -->
         
+
         <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12" id="db">
         <!-- Right -->
-          <a href="#"><strong><span class="fa fa-dashboard"></span> My Dashboard</strong></a>
+          <a href="#"><strong><span class="fa fa-dashboard"></span> My Dashboard </strong></a>
+          <hr>
+        </div>
+        
+        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12" id="my" style="display: none">
+        <!-- Right -->
+          <a href="#"><strong><span class="fa fa-dashboard"></span> My Form </strong></a>
+          <hr>
+        </div>
+
+        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12" id="cp" style="display: none">
+        <!-- Right -->
+          <a href="#"><strong><span class="fa fa-dashboard"></span> Change Password </strong></a>
           <hr>
         </div>
 
       </section>
+
+
+      <script type="text/javascript">
+        var x = document.getElementById('db');
+        var y = document.getElementById('my');
+        var z = document.getElementById('cp');
+
+        function f1(argument) {
+          if (x.style.display === "none") 
+          {
+            x.style.display = "block";
+            y.style.display = "none";
+            z.style.display = "none";
+          }
+        }
+
+        function f2(argument) {
+          if (y.style.display === "none") 
+          {
+            x.style.display = "none";
+            y.style.display = "block";
+            z.style.display = "none";
+          }
+        }
+
+        function f3(argument) {
+          if (z.style.display === "none") 
+          {
+            x.style.display = "none";
+            y.style.display = "none";
+            z.style.display = "block";
+          }
+        }
+
+      </script>
 
 
       <footer class="probootstrap-footer probootstrap-bg" style="clear: both;">
