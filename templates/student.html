@@ -121,6 +121,7 @@
           <form class="form" action="##" method="post" id="placementForm">
               <strong> Basic Details </strong>
               <hr>
+          <form class="form" action="/studentf" method="post" id="placementForm">
                       <div class="form-group">                        
                           <div class="col-xs-6">
                               <label for="name"><h4>Full name</h4></label>
@@ -182,8 +183,8 @@
 
                       <div class="form-group">
                           <div class="col-xs-6">
-                            <label for="12thpercent"><h4>Percentage in XII</h4></label>
-                              <input type="text" class="form-control" name="12thpercent" id="12thpercent" placeholder="Percentage in XII" required>
+                            <label for="percent12"><h4>Percentage in XII</h4></label>
+                              <input type="text" class="form-control" name="percent12" id="percent12" placeholder="Percentage in XII" required>
                           </div>
                       </div>
 
@@ -217,20 +218,22 @@
                           <div class="col-xs-6">
                             <label for="12thpy"><h4>Stream</h4></label>
                               <input type="number" class="form-control" name="12thpy" id="12thpy" placeholder="Year of passing" required>
+                            <label for="py12"><h4>Year of passing of XII</h4></label>
+                              <input type="number" class="form-control" name="py12" id="py12" placeholder="Year of passing" required>
                           </div>
                       </div>
                       
                       <div class="form-group">
                           <div class="col-xs-6">
-                            <label for="10thpercent"><h4>Percentage in X</h4></label>
-                              <input type="number" class="form-control" name="10thpercent" id="10thpercent" placeholder="Percentage in X" value="{{info[7]}}" required>
+                            <label for="percent10"><h4>Percentage in X</h4></label>
+                              <input type="number" class="form-control" name="percent10" id="percent10" placeholder="Percentage in X" value="{{info[7]}}" required>
                           </div>
                       </div>
                       
                       <div class="form-group">
                           <div class="col-xs-6">
-                            <label for="10thpy"><h4>Year of passing of X</h4></label>
-                              <input type="number" class="form-control" name="10thpy" id="10thpy" placeholder="Year of passing" value="{{info[7]}}" required>
+                            <label for="py10"><h4>Year of passing of X</h4></label>
+                              <input type="number" class="form-control" name="py10" id="py10" placeholder="Year of passing" value="{{info[7]}}" required>
                           </div>
                       </div>
 
