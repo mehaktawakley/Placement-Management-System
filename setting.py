@@ -73,30 +73,33 @@ def contact():
 
 @app.route('/student')
 def student():
-	if 'user' in session:
-		con = sql.connect("static/test.db")
-		cur = con.cursor()
-		#try:
-		cur.execute("select name,enrollmentno,course,section,contactno,email,batch from student where enrollmentno = ?",(session['enr'],))
-		inf = cur.fetchall();
-		inf = [j for i in inf for j in i]
-		cur.close()
-		con.close()
-		
-   if request.method == "POST":
-      12thpercent = request.form['12thpercent']
-      12thpy = request.form['12thpy']
-      10thpercent = request.form['10thpercent']
-      10thpy = request.form['10thpy']
+   if 'user' in session:
       con = sql.connect("static/test.db")
       cur = con.cursor()
-      #try:
-      cur.execute("INSERT INTO student(12th,py12,10th,py10)VALUES (?,?,?,?)WHERE enrollmentno = ?",(12thpercent,12thpy,10thpercent,12thpy,session['enr']))
-      con.commit()
+      cur.execute("select name,enrollmentno,course,section,contactno,email,batch from student where enrollmentno = ?",(session['enr'],))
+      inf = cur.fetchall()
+      inf = [j for i in inf for j in i]
       cur.close()
       con.close()
-		return render_template("student.html",un=(session['user']).title(),info=inf)
-	return redirect("/")
+      return render_template("student.html",un=(session['user']).title(),info=inf)
+   return redirect("/")
+
+@app.route('/studentf', methods=["POST"])
+def studentf():
+   if 'user' in session:
+      if request.method == "POST":
+         percent12 = request.form['percent12']
+         py12 = request.form['py12']
+         percent10 = request.form['percent10']
+         py10 = request.form['py10']
+         con = sql.connect("static/test.db")
+         cur = con.cursor()
+         cur.execute("update student set percent12 = ?, py12 = ?, percent10 = ?, py10 = ? WHERE enrollmentno = ?",(percent12,py12,percent10,py10,session['enr']))
+         con.commit()
+         cur.close()
+         con.close()
+      return redirect("/student")
+   return redirect("/")
 
 @app.route("/cmessage", methods=["POST"])
 def cmessage():
@@ -178,4 +181,4 @@ def result_category():
       return render_template("index.html",result = inp)
 """
 if __name__=="__main__":
-	app.run(debug=True,port=4000)
+	app.run(debug=True,port=5000)
