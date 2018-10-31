@@ -20,6 +20,17 @@
     <link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='css/style.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='css/custom.css')}}">
 
+    <style type="text/css">
+      h4{
+        font-size: 20px;
+        line-height: 0px;
+        margin: 0px;
+      }
+      .form-group{
+        margin: 0px 0px 10px 0px;
+      }
+    </style>
+
     <!--[if lt IE 9]>
       <script src="js/vendor/html5shiv.min.js"></script>
       <script src="js/vendor/respond.min.js"></script>
@@ -95,18 +106,19 @@
         <!-- Right -->
           <a href="#"><strong><span class="fa fa-dashboard"></span> My Dashboard </strong></a>
           <hr>
-        </div>
-        
-        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12" id="my" style="display: none">
-        <!-- Right -->
-          <a href="#"><strong><span class="fa fa-dashboard"></span> My Form </strong></a>
-          <hr>
           <form>
             <label>Name:</label>
             <input type="text" name="name" value="{{info[0]}}">
             <label>Enrollment No:</label>
             <input type="text" name="enrollmentno" value="{{info[1]}}">
           </form>
+        </div>
+        
+        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12" id="my" style="display: none">
+        <!-- Right -->
+          <a href="#"><strong><span class="fa fa-dashboard"></span> My Form </strong></a>
+          <hr>
+
         </div>
 
         <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12" id="cp" style="display: none">
