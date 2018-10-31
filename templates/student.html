@@ -119,6 +119,8 @@
           <a href="#"><strong><span class="fa fa-dashboard"></span> My Form </strong></a>
           <hr>
           <form class="form" action="##" method="post" id="placementForm">
+              <strong> Basic Details </strong>
+              <hr>
                       <div class="form-group">                        
                           <div class="col-xs-6">
                               <label for="name"><h4>Full name</h4></label>
@@ -175,6 +177,9 @@
                           </div>
                       </div>
 
+                  <strong> Class XII Details </strong>
+                  <hr>
+
                       <div class="form-group">
                           <div class="col-xs-6">
                             <label for="12thpercent"><h4>Percentage in XII</h4></label>
@@ -184,7 +189,33 @@
 
                       <div class="form-group">
                           <div class="col-xs-6">
+                            <label for="stream"><h4>Stream</h4></label>
+                              <select type="text" class="form-control" name="stream" id="stream" placeholder="Choose your stream" required>
+                                <option value="Commerce">Commerce</option>
+                                <option value="Science">Science</option>
+                                <option value="Humanities/Arts">Humanities/Arts</option>
+                                <option value="Information Technology">Information Technology</option>
+                                <option value="Other">Other</option>
+                              </select>
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+                          <div class="col-xs-6">
                             <label for="12thpy"><h4>Year of passing of XII</h4></label>
+                              <select type="text" class="form-control" name="12thpy" id="12thpy" placeholder="Year of passing" required>
+                                <option value="Commerce">Commerce</option>
+                                <option value="Science">Science</option>
+                                <option value="Humanities/Arts">Humanities/Arts</option>
+                                <option value="Information Technology">Information Technology</option>
+                                <option value="Other">Other</option>
+                              </select>
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+                          <div class="col-xs-6">
+                            <label for="12thpy"><h4>Stream</h4></label>
                               <input type="number" class="form-control" name="12thpy" id="12thpy" placeholder="Year of passing" required>
                           </div>
                       </div>
