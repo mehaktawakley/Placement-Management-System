@@ -9,18 +9,16 @@ app.secret_key = os.urandom(24)
 @app.route("/login_server", methods=["POST"])
 def login_server():
 	if request.method == "POST":
-		emailid = request.form['emailid']
+		enrollmentno = request.form['enrollmentno']
 		password = request.form['password']
 		con = sql.connect("static/test.db")
 		cur = con.cursor()
-		print(emailid)
-		emailid = emailid.lower()
 		#try:
-		cur.execute("select password from student where email = ?",(emailid,))
+		cur.execute("select password from student where enrollmentno = ?",(enrollmentno,))
 		a = cur.fetchone();
 		ta=str(a)
 		output=ta[2:-3]
-		cur.execute("select name from student where email = ?",(emailid,))
+		cur.execute("select name from student where enrollmentno = ?",(enrollmentno,))
 		b = cur.fetchone();
 		cur.close()
 		con.close()
@@ -31,11 +29,10 @@ def login_server():
 		if request.form['password'] == output and output != '':
 			session['user'] = name
 			print('session name = ',session['user'])
-			return ("<h1 class='display-1 text-center'>Login Successful</h1><br><a href='/'>Go to Home Page</a>")
+			return redirect("/student")
 		else:
 			return ("<h1 class='display-1 text-center'>Invalid Credentials</h1><br><a href='/'>Go to Home Page</a>")
-		#except:
-			#return ("<h1 class='display-1 text-center'>Invalid Credentials</h1><br><a href='/'>Go to Home Page</a>")
+
 
 @app.before_request
 def before_request():
@@ -56,23 +53,23 @@ def index():
 		return render_template("index1.html",UserName = session['user'])"""
 	return render_template("index.html")
 
-@app.route('/about.html')
+@app.route('/about')
 def about():
    return render_template("about.html")
 
-@app.route('/recruiters.html')
+@app.route('/recruiters')
 def recruiters():
    return render_template("recruiters.html")
 
-@app.route('/events.html')
+@app.route('/events')
 def events():
    return render_template("events.html")
 
-@app.route('/contact.html')
+@app.route('/contact')
 def contact():
    return render_template("contact.html")
 
-@app.route('/student.html')
+@app.route('/student')
 def student():
    return render_template("student.html")
 
