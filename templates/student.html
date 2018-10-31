@@ -292,9 +292,9 @@
                           <div class="col-xs-12">
                             <label for="placement">Are you looking forward for gainful placement?</label>
                             <br>
-                            <input type="radio" name="placement" id="placement" placeholder="Interested" value="Interested" required onselect="f4()"> Yes
+                            <input type="radio" name="placement" id="placement" placeholder="Interested" value="Interested" required onclick="f4()"> Yes
                             <br>
-                            <input type="radio" name="placement" id="placement" placeholder="Not Interested" value="Not Interested" onselect="f5()" required> No
+                            <input type="radio" name="placement" id="placement" placeholder="Not Interested" value="Not Interested" onclick="f5()" required> No
                           </div>
                       </div>
 
@@ -333,6 +333,8 @@
         var x = document.getElementById('db');
         var y = document.getElementById('my');
         var z = document.getElementById('cp');
+        var b = document.getElementById('interested')
+        var c = document.getElementById('notinterested')
 
         function f1(argument) {
           if (x.style.display === "none") 
@@ -359,18 +361,15 @@
             y.style.display = "none";
             z.style.display = "block";
           }
+        }
 
-          var b = document.getElementById('interested')
-          var c = document.getElementById('notinterested')
-
-          function f4(argument) {
-            b.style.display = "block";
-            c.style.display = "none";
-          } 
-          function f5(argument) {
-            b.style.display = "none";
-            c.style.display = "block";
-          }
+        function f4(argument) {
+          b.style.display = "block";
+          c.style.display = "none";
+        } 
+        function f5(argument) {
+          b.style.display = "none";
+          c.style.display = "block";
         }
 
       </script>
