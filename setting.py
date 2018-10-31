@@ -28,6 +28,7 @@ def login_server():
 		session.pop('user', None)
 		if request.form['password'] == output and output != '':
 			session['user'] = name
+			session['enr'] = enrollmentno
 			print('session name = ',session['user'])
 			return redirect("/student")
 		else:
@@ -44,6 +45,7 @@ def before_request():
 @app.route('/logout')
 def logout():
   session.pop('user', None)
+  session.pop('enr', None)
   return redirect('/')
 
 @app.route("/")
@@ -72,7 +74,16 @@ def contact():
 @app.route('/student')
 def student():
 	if 'user' in session:
-		return render_template("student.html",un=(session['user']).title())
+		con = sql.connect("static/test.db")
+		cur = con.cursor()
+		#try:
+		cur.execute("select name,enrollmentno from student where enrollmentno = ?",(session['enr'],))
+		inf = cur.fetchall();
+		inf = [j for i in inf for j in i]
+		cur.close()
+		con.close()
+		
+		return render_template("student.html",un=(session['user']).title(),info=inf)
 	return redirect("/")
 
 @app.route("/cmessage", methods=["POST"])
