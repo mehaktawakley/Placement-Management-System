@@ -20,6 +20,7 @@ def login_server():
             a = cur.fetchone();
             ta=str(a)
             output=ta[2:-3]
+            print(output)
             cur.execute("select name from student where enrollmentno = ?",(enrollmentno,))
             b = cur.fetchone();
             cur.close()
@@ -52,7 +53,7 @@ def login_server():
                return ("<h1 class='display-1 text-center'> Credentials</h1><br><a href='/'>Go to Home Page</a>")
             return ("<h1 class='display-1 text-center'>Invalid Credentials</h1><br><a href='/'>Go to Home Page</a>")
       except:
-         return ("<h1 class='display-1 text-center'>Invalid Credentials</h1><br><a href='/'>Go to Home Page</a>")
+         return ("<h1 class='display-1 text-center'>Invalid Credentialss</h1><br><a href='/'>Go to Home Page</a>")
 
 
 @app.before_request
