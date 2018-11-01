@@ -98,9 +98,12 @@ def studentf():
          percent10 = request.form['percent10']
          py10 = request.form['py10']
          careerobjective = request.form['careerobjective']
+         placement = request.form['placement']
+         areaofinterest = request.form['areaofinterest']
+         addons = request.form['addons']
          con = sql.connect("static/test.db")
          cur = con.cursor()
-         cur.execute("update student set dob = ?,college = ?, backlogs = ?, percent12 = ?, py12 = ?, percent10 = ?, py10 = ?, stream = ?, maths = ?, careerobjective = ? WHERE enrollmentno = ?",(dob,college,backlogs,percent12,py12,percent10,py10,stream,maths,careerobjective,session['enr']))
+         cur.execute("update student set dob = ?,college = ?, backlogs = ?, percent12 = ?, py12 = ?, percent10 = ?, py10 = ?, stream = ?, maths = ?, careerobjective = ?, interested = ?, areaofinterest = ?, addons = ? WHERE enrollmentno = ?",(dob,college,backlogs,percent12,py12,percent10,py10,stream,maths,careerobjective,placement,areaofinterest,addons,session['enr']))
          con.commit()
          cur.close()
          con.close()

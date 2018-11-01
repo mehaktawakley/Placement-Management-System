@@ -108,6 +108,7 @@
           <hr>
           <form>
             <div class="form-group">                        
+                      <div class="form-group">                        
                           <div class="col-xs-6">
                               <label for="name"><h4>Full name</h4></label>
                               <input type="text" class="form-control" name="name" id="name" placeholder="Name" value="{{info[0]}}" readonly required>
@@ -132,6 +133,27 @@
                           <div class="col-xs-6">
                               <label for="section"><h4>Section</h4></label>
                               <input type="text" class="form-control" name="section" id="section" placeholder="Section" value="{{info[3]}}" readonly required>
+                          </div>
+                      </div>
+          
+                      <div class="form-group">
+                          <div class="col-xs-6">
+                             <label for="mobile"><h4>Mobile</h4></label>
+                              <input type="text" class="form-control" name="mobile" id="mobile" placeholder="Enter your valid mobile number" value="{{info[4]}}" required>
+                          </div>
+                      </div>
+
+                      <div class="form-group">                          
+                          <div class="col-xs-6">
+                              <label for="email"><h4>Email</h4></label>
+                              <input type="email" class="form-control" name="email" id="email" placeholder="Enter your valid Email ID" value="{{info[5]}}" required>
+                          </div>
+                      </div>
+
+                      <div class="form-group">    
+                          <div class="col-xs-6">
+                              <label for="batch"><h4>Batch</h4></label>
+                              <input type="text" class="form-control" id="location" placeholder="batch" title="Enter your batch e.g. 2017-19" value="{{info[6]}}" required readonly>
                           </div>
                       </div>
               </form>
@@ -301,13 +323,25 @@
                       <div class="form-group" id="interested" style="display: none;">
                           <div class="col-xs-12">
                             <label for="placement">Interested</label>
+                            <label for="Area of interest">Please mention your area of interest (atleast 3)</label>
+                            <textarea cols="30" rows="5" type="text" class="form-control" id="areaofinterest" name="areaofinterest" placeholder="Please mention your area of interest (atleast 3)" required></textarea>
+                            <label for="Add-ons">Please provide details of any skills/certificates/diploma/trainings you have undergone as an add-on to your curriculum</label>
+                            <textarea cols="30" rows="5" type="text" class="form-control" id="addons" name="addons" placeholder="Please provide required details" required></textarea>
                           </div>
                       </div>
 
                       <div class="form-group" id="notinterested" style="display: none;">
                           <div class="col-xs-12">
                             <label for="placement">Not Interested</label>
+                            <label for="Area of interest">Please consider the following and select</label>
+                            <input type="checkbox" name="areaofinterest" id="areaofinterest" value="Higher Education" required> Higher Education
+                            <input type="checkbox" name="areaofinterest" id="areaofinterest" value="Family Business" required> Family Business
+                            <input type="checkbox" name="areaofinterest" id="areaofinterest" value="Entrepreneur" required> Become an Entrepreneur
+                            <input type="checkbox" name="areaofinterest" id="areaofinterest" value="Government Service" required> Civil Services/ Defence Service/ other Government Service
+                            <input type="checkbox" name="areaofinterest" id="areaofinterest" value="Any Other" required> Any Other (Please Specify Below)
+                            <input type="text" name="areaofinterest" id="areaofinterest">
                           </div>
+
                       </div>
 
                       <div class="form-group">
