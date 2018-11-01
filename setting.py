@@ -11,6 +11,7 @@ def login_server():
    if request.method == "POST":
       enrollmentno = request.form['enrollmentno']
       password = request.form['password']
+      print(len(enrollmentno),enrollmentno,password)
       con = sql.connect("static/test.db")
       cur = con.cursor()
       try:
