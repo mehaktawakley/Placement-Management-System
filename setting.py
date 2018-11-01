@@ -8,31 +8,51 @@ app.secret_key = os.urandom(24)
 
 @app.route("/login_server", methods=["POST"])
 def login_server():
-	if request.method == "POST":
-		enrollmentno = request.form['enrollmentno']
-		password = request.form['password']
-		con = sql.connect("static/test.db")
-		cur = con.cursor()
-		#try:
-		cur.execute("select password from student where enrollmentno = ?",(enrollmentno,))
-		a = cur.fetchone();
-		ta=str(a)
-		output=ta[2:-3]
-		cur.execute("select name from student where enrollmentno = ?",(enrollmentno,))
-		b = cur.fetchone();
-		cur.close()
-		con.close()
-		tb=str(b)
-		name=tb[2:-3]
-		print(output, name)
-		session.pop('user', None)
-		if request.form['password'] == output and output != '':
-			session['user'] = name
-			session['enr'] = enrollmentno
-			print('session name = ',session['user'])
-			return redirect("/student")
-		else:
-			return ("<h1 class='display-1 text-center'>Invalid Credentials</h1><br><a href='/'>Go to Home Page</a>")
+   if request.method == "POST":
+      enrollmentno = request.form['enrollmentno']
+      password = request.form['password']
+      print(len(enrollmentno),enrollmentno,password)
+      con = sql.connect("static/test.db")
+      cur = con.cursor()
+      try:
+         if len(enrollmentno) == 11:
+            cur.execute("select password from student where enrollmentno = ?",(enrollmentno,))
+            a = cur.fetchone();
+            ta=str(a)
+            output=ta[2:-3]
+            cur.execute("select name from student where enrollmentno = ?",(enrollmentno,))
+            b = cur.fetchone();
+            cur.close()
+            con.close()
+            tb=str(b)
+            name=tb[2:-3]
+            print(output, name)
+            session.pop('user', None)
+            if request.form['password'] == output and output != '':
+               session['user'] = name
+               session['enr'] = enrollmentno
+               return redirect("/student")
+            return ("<h1 class='display-1 text-center'>Invalid Credentials</h1><br><a href='/'>Go to Home Page</a>")
+         else:
+            cur.execute("select password from coordinator where teacherid = ?",(enrollmentno,))
+            a = cur.fetchone();
+            ta=str(a)
+            output=ta[2:-3]
+            cur.execute("select name from coordinator where teacherid = ?",(enrollmentno,))
+            b = cur.fetchone();
+            cur.close()
+            con.close()
+            tb=str(b)
+            name=tb[2:-3]
+            print(output, name)
+            session.pop('user', None)
+            if request.form['password'] == output and output != '':
+               session['user'] = name
+               session['enr'] = enrollmentno
+               return ("<h1 class='display-1 text-center'> Credentials</h1><br><a href='/'>Go to Home Page</a>")
+            return ("<h1 class='display-1 text-center'>Invalid Credentials</h1><br><a href='/'>Go to Home Page</a>")
+      except:
+         return ("<h1 class='display-1 text-center'>Invalid Credentials</h1><br><a href='/'>Go to Home Page</a>")
 
 
 @app.before_request
