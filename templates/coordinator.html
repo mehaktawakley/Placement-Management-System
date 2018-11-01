@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<!-- 
+  Theme Name: Enlight
+  Theme URL: https://probootstrap.com/enlight-free-education-responsive-bootstrap-website-template
+  Author: ProBootstrap.com
+  Author URL: https://probootstrap.com
+  License: Released for free under the Creative Commons Attribution 3.0 license (probootstrap.com/license)
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Placement Cell</title>
+    <meta name="description" content="Free Bootstrap Theme by ProBootstrap.com">
+    <meta name="keywords" content="placment, placement cell, interviews, companies, in-house placments, campus, campus placements">
+    
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='css/styles-merged.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='css/style.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='css/custom.css')}}">
+
+    <style type="text/css">
+      h4{
+        font-size: 20px;
+        line-height: 0px;
+        margin: 0px;
+      }
+      .form-group{
+        line-height: 40px;
+      }
+    </style>
+
+    <!--[if lt IE 9]>
+      <script src="js/vendor/html5shiv.min.js"></script>
+      <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <div class="probootstrap-page-wrapper">
+      <!-- Fixed navbar -->
+      
+      <div class="probootstrap-header-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-9 col-md-9 col-sm-9 probootstrap-top-quick-contact-info">
+              <span><i class="icon-location2"></i>The Placement Cell, College, Delhi</span>
+              <span><i class="icon-phone2"></i>+1-123-456-7890</span>
+              <span><i class="icon-mail"></i>info@theplacementcell.com</span>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 probootstrap-top-social">
+              <ul>
+                <li><a href="#"><i class="icon-twitter"></i></a></li>
+                <li><a href="#"><i class="icon-facebook2"></i></a></li>
+                <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                <li><a href="#"><i class="icon-earth"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="navbar navbar-default probootstrap-navbar">
+        <div class="container">
+          <div class="navbar-header">
+            <div class="btn-more js-btn-more visible-xs">
+              <a href="#"><i class="icon-dots-three-vertical "></i></a>
+            </div>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html" title="The placement cell">The Placement Cell</a>
+          </div>
+
+          <div id="navbar-collapse" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#"><i class="icon-user"></i>Welcome Coordinator</a></li>
+              <!--<li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome User</a>
+                <ul class="dropdown-menu">
+                  <li><a href="#"><i class="icon-cog"></i>Change Password</a></li>-->
+                  <li><a href="/logout"><i class="icon-log-out"></i>Logout</a></li>
+                <!--</ul>
+              </li>-->
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <section class="probootstrap-section" style="padding: 0">
+        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
+          <ul class="nav nav-pills nav-stacked" style="border-right:1px solid black;">
+            <!--<li class="nav-header"></li>-->
+            <li onclick="f1()"><a href="#"><i class="icon-users"></i> Dashboard </a></li>
+            <li onclick="f2()"><a href="#"><i class="icon-pen"></i> Create Event </a></li>
+            <li onclick="f3()"><a href="#"><i class="icon-lock"></i> Change Password </a></li>
+          </ul>
+        </div><!-- /span-3 -->
+        
+
+        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12" id="db">
+        <!-- Right -->
+          <a href="#"><strong><span class="fa fa-dashboard"></span> My Dashboard </strong></a>
+          <hr>
+          <form>                      
+                      <div class="form-group">                        
+                          <div class="col-xs-6">
+                              <label for="name"><h4>Full name</h4></label>
+                              <input type="text" class="form-control" name="name" id="name" placeholder="Name"  required>
+                          </div>
+                      </div>
+
+                      <div class="form-group">                          
+                          <div class="col-xs-6">
+                              <label for="email"><h4>Email</h4></label>
+                              <input type="email" class="form-control" name="email" id="email" placeholder="Enter your valid Email ID" required>
+                          </div>
+                      </div>
+           </form>
+        
+        </div>
+        
+        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12" id="ce" style="display: none">
+        <!-- Right -->
+          <a href="#"><strong><span class="fa fa-dashboard"></span> Create Event For Placement Drive </strong></a>
+          <hr>
+          <form>                      
+                      <div class="form-group">                        
+                          <div class="col-xs-6">
+                              <label for="name"><h4>Company</h4></label>
+                              <input type="text" class="form-control" name="cname" id="cname" placeholder="Enter name of company"  required>
+                          </div>
+                      </div>
+
+                      <div class="form-group">                          
+                          <div class="col-xs-6">
+                              <label for="text"><h4>Role Offered</h4></label>
+                              <input type="text" class="form-control" name="role" id="role" placeholder="Enter Role Offered" required>
+                          </div>
+                      </div>
+
+                      <div class="form-group">                          
+                          <div class="col-xs-6">
+                              <label for="text"><h4>Expected Salary per annum</h4></label>
+                              <input type="number" class="form-control" name="salary" id="salary" placeholder="Expected salary per annum" required>
+                          </div>
+                      </div>
+
+                      <div class="form-group">                          
+                          <div class="col-xs-12">
+                              <label for="text"><h4>Eligibility</h4></label>
+                              <textarea cols="30" rows="5" type="text" class="form-control" id="eligibility" name="eligibility" placeholder="Enter eligibility criteria such as course, required percentage, number of backlogs allowed etc." required></textarea>
+                          </div>
+                      </div>
+
+                      <div class="form-group">                          
+                          <div class="col-xs-12">
+                              <label for="text"><h4>Interview Process</h4></label>
+                              <textarea cols="30" rows="5" type="text" class="form-control" id="interviewprocess" name="interviewprocess" placeholder="Give in brief the interview process." required></textarea>
+                          </div>
+                      </div>
+
+                      <div class="form-group">                          
+                          <div class="col-xs-6">
+                              <label for="text"><h4>Date</h4></label>
+                              <input type="date" class="form-control" name="date" id="date" required>
+                          </div>
+                      </div>
+
+                      <div class="form-group">                          
+                          <div class="col-xs-6">
+                              <label for="text"><h4>Venue</h4></label>
+                              <input type="text" class="form-control" name="venue" id="venue" placeholder="Enter the venue of drive" required>
+                          </div>
+                      </div>
+
+                      <div class="form-group">                          
+                          <div class="col-xs-12">
+                              <label for="text"><h4>Other Details</h4></label>
+                              <textarea cols="30" rows="3" type="text" class="form-control" id="other" name="other" placeholder="Give in brief other details (If any)" required></textarea>
+                          </div>
+                      </div>
+
+                      <div class="form-group">                          
+                          <div class="col-xs-12">
+                              <label for="text"><h4>Link</h4></label>
+                              <textarea cols="30" rows="1" type="text" class="form-control" id="link" name="link" placeholder="Enter link of registeration" required></textarea>
+                          </div>
+                      </div>
+
+           </form>
+        </div>  
+
+      </section>
+
+
+      <script type="text/javascript">
+        var x = document.getElementById('db');
+        var y = document.getElementById('ce');
+        var z = document.getElementById('cp');
+        var b = document.getElementById('interested')
+        var c = document.getElementById('notinterested')
+
+        function f1(argument) {
+          if (x.style.display === "none") 
+          {
+            x.style.display = "block";
+            y.style.display = "none";
+            z.style.display = "none";
+          }
+        }
+
+        function f2(argument) {
+          if (y.style.display === "none") 
+          {
+            x.style.display = "none";
+            y.style.display = "block";
+            z.style.display = "none";
+          }
+        }
+
+        function f3(argument) {
+          if (z.style.display === "none") 
+          {
+            x.style.display = "none";
+            y.style.display = "none";
+            z.style.display = "block";
+          }
+        }
+
+        function f4(argument) {
+          b.style.display = "block";
+          c.style.display = "none";
+        } 
+        function f5(argument) {
+          b.style.display = "none";
+          c.style.display = "block";
+        }
+
+      </script>
+
+
+      <footer class="probootstrap-footer probootstrap-bg" style="clear: both;">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="probootstrap-footer-widget">
+                <h3>About The Placement Cell</h3>
+                <p>The placement cell helps students in finding a job that they want and need. With collaboration with various companies, the placement cell have been always able to guide students.</p>
+                <h3>Social</h3>
+                <ul class="probootstrap-footer-social">
+                  <li><a href="#"><i class="icon-twitter"></i></a></li>
+                  <li><a href="#"><i class="icon-facebook"></i></a></li>
+                  <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                  <li><a href="#"><i class="icon-earth"></i></a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-3 col-md-push-1">
+              <div class="probootstrap-footer-widget">
+                <h3>Links</h3>
+                <ul>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="recruiters.html">Major Recruiters</a></li>
+                  <li><a href="#">Events and News</a></li>
+                  <li style="cursor: pointer;"><a data-toggle="modal" data-target="#loginModal">Login</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="probootstrap-footer-widget">
+                <h3>Contact Info</h3>
+                <ul class="probootstrap-contact-info">
+                  <li><i class="icon-location2"></i> <span>The Placement Cell, College, Delhi</span></li>
+                  <li><i class="icon-mail"></i><span>info@theplacementcell.com</span></li>
+                  <li><i class="icon-phone2"></i><span>+123 456 7890</span></li>
+                </ul>
+              </div>
+            </div>
+           
+          </div>
+          <!-- END row -->
+          
+        </div>
+
+        <div class="probootstrap-copyright">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 text-left">
+                <p>&copy; 2018 All Rights Reserved.</p>
+              </div>
+              <div class="col-md-4 probootstrap-back-to-top">
+                <p><a href="#" class="js-backtotop">Back to top <i class="icon-arrow-long-up"></i></a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+    <!-- END wrapper -->
+    
+
+    <script src="../static/js/scripts.min.js"></script>
+    <script src="../static/js/main.min.js"></script>
+    <script src="../static/js/custom.js"></script>
+
+  </body>
+</html>

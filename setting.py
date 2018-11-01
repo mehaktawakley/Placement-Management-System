@@ -92,6 +92,10 @@ def events():
 def contact():
    return render_template("contact.html")
 
+@app.route('/coordinator')
+def coordinator():
+   return render_template("coordinator.html")
+
 @app.route('/student')
 def student():
    if 'user' in session:
