@@ -148,67 +148,24 @@ def cmessage():
       con.close()
       return render_template("contact.html",c_modal=True)
 
-"""
-
-@app.route('/result',methods = ['POST', 'GET'])
-def result():
-   if request.method == 'POST':
-      result = request.form['q']
-      print(result)
-      con=sql.connect("static/datab.db")
-      cur=con.cursor()
-      cur.execute("select image_name from photos_photo_table where image_tags like '%"+str(result)+"%'")
-      inp=cur.fetchall()
-      inp = [j for i in inp for j in i]
-      new = []
-      if len(inp) == 0:
-      	result = result.split(" ")
-      	for x in result:
-      		cur.execute("select image_name from photos_photo_table where image_tags like '%"+str(x)+"%'")
-      		temp = cur.fetchall()
-      		new.extend([j for i in temp for j in i])
-      	for i in new:
-      		if i in inp:
-      			inp.remove(i)
-      			inp.insert(0,i)
-      		else:
-      			inp.append(i)
-      con.commit()
-      #return redirect('/')
-      #return redirect(url_for('index'))
-      cur.close()
-      con.close()
-      if 'user' in session:
-      	if len(inp) == 0:
-      		return render_template("index1.html",UserName = session['user'], r = True)
-      	return render_template("index1.html", UserName = session['user'], result =inp)
-      if len(inp) == 0:
-      	return render_template("index.html", r = True)
-      return render_template("index.html",result = inp)
-
-@app.route('/result_category',methods = ['POST', 'GET'])
-def result_category():
-   if request.method == 'POST':
-      result = request.form['q']
-      print(result)
-      con=sql.connect("static/datab.db")
-      cur=con.cursor()
-      cur.execute("select image_name from photos_photo_table where image_category like '%"+str(result)+"%'")
-      inp=cur.fetchall()
-      inp = [j for i in inp for j in i]
-      print(inp)
-      con.commit()
-      #return redirect('/')
-      #return redirect(url_for('index'))
-      cur.close()
-      con.close()
-      if 'user' in session:
-      	if len(inp) == 0:
-      		return render_template("index1.html",UserName = session['user'], r = True)
-      	return render_template("index1.html", UserName = session['user'], result =inp)
-      if len(inp) == 0:
-      	return render_template("index.html", r = True)
-      return render_template("index.html",result = inp)
-"""
+@app.route('/changepass', methods=["POST"])
+def changepass():
+   if 'user' in session:
+      if request.method == "POST":
+         cpass = request.form['cpass']
+         newpass = request.form['newpass']
+         con = sql.connect("static/test.db")
+         cur = con.cursor()
+         cur.execute("select password from student where enrollmentno = ?",(session['enr'],))
+         a = cur.fetchone();
+         ta=str(a)
+         output=ta[2:-3]
+         if output == cpass and output != "":
+            cur.execute("update student set password = ? WHERE enrollmentno = ?",(newpass,session['enr']))
+         con.commit()
+         cur.close()
+         con.close()
+      return redirect("/student")
+   return redirect("/")
 if __name__=="__main__":
 	app.run(debug=True,port=5000)

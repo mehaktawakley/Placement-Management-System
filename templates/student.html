@@ -359,6 +359,28 @@
         <!-- Right -->
           <a href="#"><strong><span class="fa fa-dashboard"></span> Change Password </strong></a>
           <hr>
+          <form class="form" action="/changepass" method="post" id="placementForm">
+                      <div class="form-group">                        
+                          <div class="col-xs-6">
+                              <label for="cpass"><h4>Current Password:</h4></label>
+                              <input type="text" class="form-control" name="cpass" value="Current Password" required>
+                          </div>
+                      </div>
+
+                      <div class="form-group">                          
+                          <div class="col-xs-6">
+                            <label for="newpass"><h4>New Password:</h4></label>
+                              <input type="text" class="form-control" name="newpass"  value ="New Password" required>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                           <div class="col-xs-12">
+                                <br>
+                                <button class="btn btn-lg btn-success" type="submit">Save</button>
+                                <button class="btn btn-lg" type="reset">Reset</button>
+                            </div>
+                      </div>
+          </form>
         </div>
 
       </section>
