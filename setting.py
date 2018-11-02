@@ -50,7 +50,7 @@ def login_server():
             if request.form['password'] == output and output != '':
                session['user'] = name
                session['enr'] = enrollmentno
-               return ("<h1 class='display-1 text-center'> Credentials</h1><br><a href='/'>Go to Home Page</a>")
+               return redirect("/coordinator")
             return ("<h1 class='display-1 text-center'>Invalid Credentials</h1><br><a href='/'>Go to Home Page</a>")
       except:
          return ("<h1 class='display-1 text-center'>Invalid Credentialss</h1><br><a href='/'>Go to Home Page</a>")
@@ -71,9 +71,6 @@ def logout():
 
 @app.route("/")
 def index():
-	"""if 'user' in session:
-		print(session['user'])
-		return render_template("index1.html",UserName = session['user'])"""
 	return render_template("index.html")
 
 @app.route('/about')
@@ -94,7 +91,17 @@ def contact():
 
 @app.route('/coordinator')
 def coordinator():
-   return render_template("coordinator.html")
+   if 'user' in session:
+      con = sql.connect("static/test.db")
+      cur = con.cursor()
+      cur.execute("select email from coordinator where teacherid = ?",(session['enr'],))
+      a = cur.fetchone();
+      ta=str(a)
+      output=ta[2:-3]
+      cur.close()
+      con.close()
+      return render_template("coordinator.html",un=(session['user']).title(),eid=output)
+   return redirect("/")
 
 @app.route('/student')
 def student():
@@ -108,6 +115,7 @@ def student():
       con.close()
       return render_template("student.html",un=(session['user']).title(),info=inf)
    return redirect("/")
+
 
 @app.route('/studentf', methods=["POST"])
 def studentf():
@@ -133,6 +141,28 @@ def studentf():
          cur.close()
          con.close()
       return redirect("/student")
+   return redirect("/")
+
+@app.route('/createevent', methods=["POST"])
+def createevent():
+   if 'user' in session:
+      if request.method == "POST":
+         cname = request.form['cname']
+         role = request.form['role']
+         salary = request.form['salary']
+         eligibility = request.form['eligibility']
+         interviewprocess = request.form['interviewprocess']
+         date = request.form['date']
+         venue = request.form['venue']
+         other = request.form['other']
+         link = request.form['link']
+         con = sql.connect("static/test.db")
+         cur = con.cursor()
+         cur.execute("INSERT INTO event(companyname,role, date , salary , venue, interviewprocess, other, link) VALUES(?,?,?,?,?,?,?,?)",(cname,role,date,salary,venue,interviewprocess,other,link))
+         con.commit()
+         cur.close()
+         con.close()
+      return redirect("/coordinator")
    return redirect("/")
 
 @app.route("/cmessage", methods=["POST"])
@@ -170,6 +200,27 @@ def changepass():
          cur.close()
          con.close()
       return redirect("/student")
+   return redirect("/")
+
+@app.route('/changepasst', methods=["POST"])
+def changepasst():
+   if 'user' in session:
+      if request.method == "POST":
+         cpass = request.form['cpass']
+         newpass = request.form['newpass']
+         con = sql.connect("static/test.db")
+         cur = con.cursor()
+         cur.execute("select password from coordinator where teacherid = ?",(session['enr'],))
+         a = cur.fetchone();
+         ta=str(a)
+         output=ta[2:-3]
+         print(output)
+         if output == cpass and output != "":
+            cur.execute("update coordinator set password = ? WHERE teacherid = ?",(newpass,session['enr']))
+         con.commit()
+         cur.close()
+         con.close()
+      return redirect("/coordinator")
    return redirect("/")
 if __name__=="__main__":
 	app.run(debug=True,port=5000)
