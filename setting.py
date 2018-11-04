@@ -5,6 +5,9 @@ app=Flask(__name__)
 app.config["CACHE_TYPE"] = "null"
 app.secret_key = os.urandom(24)
 
+def test():
+   print("testing")
+   return
 
 @app.route("/login_server", methods=["POST"])
 def login_server():
@@ -93,6 +96,7 @@ def events():
          print(j)
    cur.close()
    con.close()
+   test()
    return render_template("events.html",result=inf)
 
 @app.route('/contact')
