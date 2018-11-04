@@ -119,74 +119,21 @@
         <div class="container">
 
           <div class="row">
+            {% for r in result %}
             <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 probootstrap-animate">
               <a href="#" class="probootstrap-featured-news-box">
-                <figure class="probootstrap-media"><img src="img/img_sm_1.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
+                <!--<figure class="probootstrap-media"><img src="static/img/img/alight.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>-->
                 <div class="probootstrap-text">
-                  <h3>Tempora consectetur unde nisi</h3>
-                  <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                  <span class="probootstrap-location"><i class="icon-location2"></i>White Palace, Brooklyn, NYC</span>
+                  <h3>{{r[0]}}</h3>
+                  <span class="probootstrap-date"><i class="icon-user"></i>{{r[1]}}</span>
+                  <span class="probootstrap-date"><i class="icon-calendar"></i>{{r[2]}}</span>
+                  <span class="probootstrap-location"><i class="icon-coin-dollar"></i>{{r[3]}}</span>
+                  <span class="probootstrap-location"><i class="icon-location2"></i>{{r[4]}}</span>
                 </div>
               </a>
             </div>
-            <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 probootstrap-animate">
-              <a href="#" class="probootstrap-featured-news-box">
-                <figure class="probootstrap-media"><img src="img/img_sm_2.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
-                <div class="probootstrap-text">
-                  <h3>Tempora consectetur unde nisi</h3>
-                  <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                  <span class="probootstrap-location"><i class="icon-location2"></i>White Palace, Brooklyn, NYC</span>
-                </div>
-              </a>
-            </div>
-            <div class="clearfix visible-sm-block visible-xs-block"></div>
-            <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 probootstrap-animate">
-              <a href="#" class="probootstrap-featured-news-box">
-                <figure class="probootstrap-media"><img src="img/img_sm_3.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
-                <div class="probootstrap-text">
-                  <h3>Tempora consectetur unde nisi</h3>
-                  <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                  <span class="probootstrap-location"><i class="icon-location2"></i>White Palace, Brooklyn, NYC</span>
-                </div>
-              </a>
-            </div>
-
-            <div class="clearfix visible-md-block"></div>
-            
-            <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 probootstrap-animate">
-              <a href="#" class="probootstrap-featured-news-box">
-                <figure class="probootstrap-media"><img src="img/img_sm_1.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
-                <div class="probootstrap-text">
-                  <h3>Tempora consectetur unde nisi</h3>
-                  <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                  <span class="probootstrap-location"><i class="icon-location2"></i>White Palace, Brooklyn, NYC</span>
-                </div>
-              </a>
-            </div>
-            <div class="clearfix visible-sm-block visible-xs-block"></div>
-            
-            <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 probootstrap-animate">
-              <a href="#" class="probootstrap-featured-news-box">
-                <figure class="probootstrap-media"><img src="img/img_sm_2.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
-                <div class="probootstrap-text">
-                  <h3>Tempora consectetur unde nisi</h3>
-                  <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                  <span class="probootstrap-location"><i class="icon-location2"></i>White Palace, Brooklyn, NYC</span>
-                </div>
-              </a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 probootstrap-animate">
-              <a href="#" class="probootstrap-featured-news-box">
-                <figure class="probootstrap-media"><img src="img/img_sm_3.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
-                <div class="probootstrap-text">
-                  <h3>Tempora consectetur unde nisi</h3>
-                  <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                  <span class="probootstrap-location"><i class="icon-location2"></i>White Palace, Brooklyn, NYC</span>
-                </div>
-              </a>
-            </div>
-            <div class="clearfix visible-sm-block visible-xs-block"></div>
-
+            {% endfor %}
+            <!--<div class="clearfix visible-sm-block visible-xs-block"></div>-->
           </div>
         </div>
       </section>
