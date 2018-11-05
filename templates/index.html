@@ -69,7 +69,15 @@
           </div>
         </div>
       </nav>
-
+      <div style="display: none">
+        <a data-toggle="modal" data-target="#login_fail" id="test_login"></a>
+      </div>
+      {% if login_modal %}
+        <script type="text/javascript">
+          document.getElementById('test_login').click();
+          console.log("done");
+        </script>
+      {% endif %}
       <!-- Login Modal -->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -165,9 +173,9 @@
                 <div class="probootstrap-image probootstrap-animate" style="max-height: 500px;">
                   <section class="flexslider">
                     <ul class="slides">
-                      <li><img src="../static/img/img/PR1.jpg" style="height: 100%; width: 100%;max-height: 500px;"></li>
-                      <li><img src="../static/img/img/PR1.jpg" style="height: 100%; width: 100%;max-height: 500px;"></li>
-                      <li><img src="../static/img/img/PR1.jpg" style="height: 100%; width: 100%;max-height: 500px;"></li>
+                      <li><img src="../static/img/img/PR1.JPG" style="height: 100%; width: 100%;max-height: 500px;"></li>
+                      <li><img src="../static/img/img/PR1.JPG" style="height: 100%; width: 100%;max-height: 500px;"></li>
+                      <li><img src="../static/img/img/PR1.JPG" style="height: 100%; width: 100%;max-height: 500px;"></li>
                     </ul>
                   </section>
                 </div>
@@ -239,157 +247,7 @@
         </div>
       </section>
 
-      <!--<section class="probootstrap-section probootstrap-section-colored probootstrap-bg probootstrap-custom-heading probootstrap-tab-section" style="background-image: url(../static/img/slider_2.jpg)">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12 text-center section-heading probootstrap-animate">
-              <h2 class="mb0">Highlights</h2>
-            </div>
-          </div>
-        </div>
-        <div class="probootstrap-tab-style-1">
-          <ul class="nav nav-tabs probootstrap-center probootstrap-tabs no-border">
-            <li class="active"><a data-toggle="tab" href="#featured-news">Featured News</a></li>
-            <li><a data-toggle="tab" href="#upcoming-events">Upcoming Events</a></li>
-          </ul>
-        </div>
-      </section>-->
-
-      <!--<section class="probootstrap-section probootstrap-section">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              
-              <div class="tab-content">
-
-                <div id="featured-news" class="tab-pane fade in active">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="owl-carousel" id="owl1">
-                        <div class="item">
-                          <a href="#" class="probootstrap-featured-news-box">
-                            <figure class="probootstrap-media"><img src="../static/img/img_sm_3.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
-                            <div class="probootstrap-text">
-                              <h3>Tempora consectetur unde nisi</h3>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, ut.</p>
-                              <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                              
-                            </div>
-                          </a>
-                        </div>
-                        <!-- END item -->
-                        <!--<div class="item">
-                          <a href="#" class="probootstrap-featured-news-box">
-                            <figure class="probootstrap-media"><img src="../static/img/img_sm_1.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
-                            <div class="probootstrap-text">
-                              <h3>Tempora consectetur unde nisi</h3>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, officia.</p>
-                              <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                              
-                            </div>
-                          </a>
-                        </div>
-                        <!-- END item -->
-                        <!--<div class="item">
-                          <a href="#" class="probootstrap-featured-news-box">
-                            <figure class="probootstrap-media"><img src="../static/img/img_sm_2.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
-                            <div class="probootstrap-text">
-                              <h3>Tempora consectetur unde nisi</h3>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, dolores.</p>
-                              <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                              
-                            </div>
-                          </a>
-                        </div>
-                        <!-- END item -->
-                        <!--<div class="item">
-                          <a href="#" class="probootstrap-featured-news-box">
-                            <figure class="probootstrap-media"><img src="../static/img/img_sm_3.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
-                            <div class="probootstrap-text">
-                              <h3>Tempora consectetur unde nisi</h3>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, earum.</p>
-                              <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                              
-                              
-                            </div>
-                          </a>
-                        </div>
-                        <!-- END item -->
-                      <!--</div>
-                    </div>
-                  </div>
-                  <!-- END row -->
-                  <!--<div class="row">
-                    <div class="col-md-12 text-center">
-                      <p><a href="#" class="btn btn-primary">View all news</a></p>  
-                    </div>
-                  </div>
-                </div>
-                <div id="upcoming-events" class="tab-pane fade">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="owl-carousel" id="owl2">
-                        <div class="item">
-                          <a href="#" class="probootstrap-featured-news-box">
-                            <figure class="probootstrap-media"><img src="../static/img/img_sm_3.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
-                            <div class="probootstrap-text">
-                              <h3>Tempora consectetur unde nisi</h3>
-                              <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                              <span class="probootstrap-location"><i class="icon-location2"></i>White Palace, Brooklyn, NYC</span>
-                            </div>
-                          </a>
-                        </div>
-                        <!-- END item -->
-                        <!--<div class="item">
-                          <a href="#" class="probootstrap-featured-news-box">
-                            <figure class="probootstrap-media"><img src="../static/img/img_sm_1.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
-                            <div class="probootstrap-text">
-                              <h3>Tempora consectetur unde nisi</h3>
-                              <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                              <span class="probootstrap-location"><i class="icon-location2"></i>White Palace, Brooklyn, NYC</span>
-                            </div>
-                          </a>
-                        </div>
-                        <!-- END item -->
-                        <!--<div class="item">
-                          <a href="#" class="probootstrap-featured-news-box">
-                            <figure class="probootstrap-media"><img src="../static/img/img_sm_2.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
-                            <div class="probootstrap-text">
-                              <h3>Tempora consectetur unde nisi</h3>
-                              <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                              <span class="probootstrap-location"><i class="icon-location2"></i>White Palace, Brooklyn, NYC</span>
-                            </div>
-                          </a>
-                        </div>
-                        <!-- END item -->
-                        <!--<div class="item">
-                          <a href="#" class="probootstrap-featured-news-box">
-                            <figure class="probootstrap-media"><img src="../static/img/img_sm_3.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
-                            <div class="probootstrap-text">
-                              <h3>Tempora consectetur unde nisi</h3>
-                              <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                              <span class="probootstrap-location"><i class="icon-location2"></i>White Palace, Brooklyn, NYC</span>
-                            </div>
-                          </a>
-                        </div>
-                        <!-- END item -->
-                      <!--</div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12 text-center">
-                      <p><a href="#" class="btn btn-primary">View all events</a></p>  
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            
-            </div>
-          </div>
-        </div>
-      </section>-->
-           
+                
       
       <section class="probootstrap-section">
         <div class="container">
@@ -564,7 +422,27 @@
           <!-- END row -->
         </div>
       </section>
-      
+      <div class="modal fade" id="login_fail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="aboutModalLabel">Login Failed</h5>
+            <a href="/"><button type="button" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </a>
+          </div>
+          <div class="modal-body">
+            Invalid Credentials
+          </div>
+          <div class="modal-footer">
+            <a href="/" style="color: black;">
+            <button type="button" class="btn btn-secondary">Close</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
       <section class="probootstrap-cta">
         <div class="container">
           <div class="row">
@@ -619,7 +497,6 @@
           <!-- END row -->
           
         </div>
-
         <div class="probootstrap-copyright">
           <div class="container">
             <div class="row">
@@ -636,7 +513,6 @@
 
     </div>
     <!-- END wrapper -->
-    
 
     <script src="../static/js/scripts.min.js"></script>
     <script src="../static/js/main.min.js"></script>

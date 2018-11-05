@@ -5,10 +5,6 @@ app=Flask(__name__)
 app.config["CACHE_TYPE"] = "null"
 app.secret_key = os.urandom(24)
 
-def test():
-   print("testing")
-   return
-
 @app.route("/login_server", methods=["POST"])
 def login_server():
    if request.method == "POST":
@@ -36,7 +32,7 @@ def login_server():
                session['user'] = name
                session['enr'] = enrollmentno
                return redirect("/student")
-            return ("<h1 class='display-1 text-center'>Invalid Credentials</h1><br><a href='/'>Go to Home Page</a>")
+            return render_template("index.html",login_modal=True)
          else:
             cur.execute("select password from coordinator where teacherid = ?",(enrollmentno,))
             a = cur.fetchone();
@@ -54,9 +50,9 @@ def login_server():
                session['user'] = name
                session['enr'] = enrollmentno
                return redirect("/coordinator")
-            return ("<h1 class='display-1 text-center'>Invalid Credentials</h1><br><a href='/'>Go to Home Page</a>")
+            return render_template("index.html",login_modal=True)
       except:
-         return ("<h1 class='display-1 text-center'>Invalid Credentialss</h1><br><a href='/'>Go to Home Page</a>")
+         return render_template("index.html",login_modal=True)
 
 
 @app.before_request
@@ -96,7 +92,6 @@ def events():
          print(j)
    cur.close()
    con.close()
-   test()
    return render_template("events.html",result=inf)
 
 @app.route('/contact')
