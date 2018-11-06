@@ -68,16 +68,46 @@
           <div id="navbar-collapse" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
               <li><a href="/">Home</a></li>
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="recruiters.html">Major Recruiters</a></li>
-              <li class="active"><a href="events.html">Events and News</a></li>
-              <li><a href="#">Login</a></li>
-              <li><a href="contact.html">Contact</a></li>
+              <li><a href="/about">About Us</a></li>
+              <li><a href="/recruiters">Major Recruiters</a></li>
+              <li class="active"><a href="/events">Events and News</a></li>
+              <li style="cursor: pointer;"><a data-toggle="modal" data-target="#loginModal">Login</a></li>
+              <li><a href="/contact">Contact</a></li>
             </ul>
           </div>
         </div>
       </nav>
-      
+      <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">Login</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+            <form action="/login_server" method="post">
+          <div class="modal-body">
+                 <div class="form-group row">
+                    <label for="enrollmentno" class="col-sm-4 col-form-label">Enrollment No : </label>
+                    <div class="col-sm-8">
+                      <input type="number" class="form-control" name="enrollmentno" placeholder="Enrollment No">
+                    </div>
+                  </div>
+                <div class="form-group row">
+                    <label for="password" class="col-sm-4 col-form-label">Password : </label>
+                    <div class="col-sm-8">
+                      <input type="password" name="password" class="form-control" placeholder="Enter Your Password">
+                    </div>
+                </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div></form>
+        </div>
+      </div>
+    </div>
       <section class="probootstrap-section probootstrap-section-colored">
         <div class="container">
           <div class="row">
@@ -111,82 +141,25 @@
           </div>
         </div>
       </section>
-
-
-      
-      
       <section class="probootstrap-section">
         <div class="container">
 
           <div class="row">
+            {% for r in result %}
             <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 probootstrap-animate">
               <a href="#" class="probootstrap-featured-news-box">
-                <figure class="probootstrap-media"><img src="img/img_sm_1.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
+                <!--<figure class="probootstrap-media"><img src="static/img/img/alight.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>-->
                 <div class="probootstrap-text">
-                  <h3>Tempora consectetur unde nisi</h3>
-                  <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                  <span class="probootstrap-location"><i class="icon-location2"></i>White Palace, Brooklyn, NYC</span>
+                  <h3>{{r[0]}}</h3>
+                  <span class="probootstrap-date"><i class="icon-user"></i>{{r[1]}}</span>
+                  <span class="probootstrap-date"><i class="icon-calendar"></i>{{r[2]}}</span>
+                  <span class="probootstrap-location"><i class="icon-coin-dollar"></i>{{r[3]}}</span>
+                  <span class="probootstrap-location"><i class="icon-location2"></i>{{r[4]}}</span>
                 </div>
               </a>
             </div>
-            <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 probootstrap-animate">
-              <a href="#" class="probootstrap-featured-news-box">
-                <figure class="probootstrap-media"><img src="img/img_sm_2.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
-                <div class="probootstrap-text">
-                  <h3>Tempora consectetur unde nisi</h3>
-                  <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                  <span class="probootstrap-location"><i class="icon-location2"></i>White Palace, Brooklyn, NYC</span>
-                </div>
-              </a>
-            </div>
-            <div class="clearfix visible-sm-block visible-xs-block"></div>
-            <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 probootstrap-animate">
-              <a href="#" class="probootstrap-featured-news-box">
-                <figure class="probootstrap-media"><img src="img/img_sm_3.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
-                <div class="probootstrap-text">
-                  <h3>Tempora consectetur unde nisi</h3>
-                  <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                  <span class="probootstrap-location"><i class="icon-location2"></i>White Palace, Brooklyn, NYC</span>
-                </div>
-              </a>
-            </div>
-
-            <div class="clearfix visible-md-block"></div>
-            
-            <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 probootstrap-animate">
-              <a href="#" class="probootstrap-featured-news-box">
-                <figure class="probootstrap-media"><img src="img/img_sm_1.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
-                <div class="probootstrap-text">
-                  <h3>Tempora consectetur unde nisi</h3>
-                  <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                  <span class="probootstrap-location"><i class="icon-location2"></i>White Palace, Brooklyn, NYC</span>
-                </div>
-              </a>
-            </div>
-            <div class="clearfix visible-sm-block visible-xs-block"></div>
-            
-            <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 probootstrap-animate">
-              <a href="#" class="probootstrap-featured-news-box">
-                <figure class="probootstrap-media"><img src="img/img_sm_2.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
-                <div class="probootstrap-text">
-                  <h3>Tempora consectetur unde nisi</h3>
-                  <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                  <span class="probootstrap-location"><i class="icon-location2"></i>White Palace, Brooklyn, NYC</span>
-                </div>
-              </a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 probootstrap-animate">
-              <a href="#" class="probootstrap-featured-news-box">
-                <figure class="probootstrap-media"><img src="img/img_sm_3.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
-                <div class="probootstrap-text">
-                  <h3>Tempora consectetur unde nisi</h3>
-                  <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                  <span class="probootstrap-location"><i class="icon-location2"></i>White Palace, Brooklyn, NYC</span>
-                </div>
-              </a>
-            </div>
-            <div class="clearfix visible-sm-block visible-xs-block"></div>
-
+            {% endfor %}
+            <!--<div class="clearfix visible-sm-block visible-xs-block"></div>-->
           </div>
         </div>
       </section>
@@ -196,7 +169,7 @@
           <div class="row">
             <div class="col-md-12">
               <h2 class="probootstrap-animate" data-animate-effect="fadeInRight">Sit For Placements!</h2>
-              <a href="#" role="button" class="btn btn-primary btn-lg btn-ghost probootstrap-animate" data-animate-effect="fadeInLeft">Login</a>
+              <a data-toggle="modal" data-target="#loginModal" role="button" class="btn btn-primary btn-lg btn-ghost probootstrap-animate" data-animate-effect="fadeInLeft">Login</a>
             </div>
           </div>
         </div>
@@ -221,12 +194,12 @@
               <div class="probootstrap-footer-widget">
                 <h3>Links</h3>
                 <ul>
-                  <li><a href="index.html">Home</a></li>
-                  <li><a href="about.html">About Us</a></li>
-                  <li><a href="recruiters.html">Major Recruiters</a></li>
-                  <li><a href="events.html">Events and News</a></li>
-                  <li><a href="#">Login</a></li>
-                  <li><a href="contact.html">Contact</a></li>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/about">About Us</a></li>
+                  <li><a href="/recruiters">Major Recruiters</a></li>
+                  <li><a href="events">Events and News</a></li>
+                  <li style="cursor: pointer;"><a data-toggle="modal" data-target="#loginModal">Login</a></li>
+                  <li><a href="contact">Contact</a></li>
                 </ul>
               </div>
             </div>
@@ -264,23 +237,6 @@
           <!-- END row -->
           
         </div>
-
-        <div class="probootstrap-copyright">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-8 text-left">
-                <p>&copy; 2017 <a href="https://probootstrap.com/">ProBootstrap:Enlight</a>. All Rights Reserved. Designed &amp; Developed with <i class="icon icon-heart"></i> by <a href="https://probootstrap.com/">ProBootstrap.com</a></p>
-              </div>
-              <div class="col-md-4 probootstrap-back-to-top">
-                <p><a href="#" class="js-backtotop">Back to top <i class="icon-arrow-long-up"></i></a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
-
-    </div>
-    <!-- END wrapper -->
     
 
     <script src="../static/js/scripts.min.js"></script>
