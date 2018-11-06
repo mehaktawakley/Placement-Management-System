@@ -11,11 +11,6 @@
     <link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='css/styles-merged.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='css/style.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='css/custom.css')}}">
-
-    <!--[if lt IE 9]>
-      <script src="js/vendor/html5shiv.min.js"></script>
-      <script src="js/vendor/respond.min.js"></script>
-    <![endif]-->
   </head>
   <body>
 
@@ -72,12 +67,6 @@
       <div style="display: none">
         <a data-toggle="modal" data-target="#login_fail" id="test_login"></a>
       </div>
-      {% if login_modal %}
-        <script type="text/javascript">
-          document.getElementById('test_login').click();
-          console.log("done");
-        </script>
-      {% endif %}
       <!-- Login Modal -->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -517,6 +506,13 @@
     <script src="../static/js/scripts.min.js"></script>
     <script src="../static/js/main.min.js"></script>
     <script src="../static/js/custom.js"></script>
+    {% if login_modal %}
+      <script type="text/javascript">
+        console.log("before");
+        document.getElementById('test_login').click();
+        console.log("doneyyy");
+      </script>
+    {% endif %}
 
   </body>
 </html>
