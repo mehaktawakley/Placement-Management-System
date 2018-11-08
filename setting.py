@@ -84,12 +84,13 @@ def recruiters():
 def events():
    con = sql.connect("static/test.db")
    cur = con.cursor()
-   cur.execute("select companyname,role,date,salary,venue from event")
+   cur.execute("select companyname,role,date,salary,venue,sno from event")
    inf = cur.fetchall()
    inf = [i for i in inf]
    for i in inf:
       for j in i:
          print(j)
+      print()
    cur.close()
    con.close()
    return render_template("events.html",result=inf)
