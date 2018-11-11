@@ -198,7 +198,7 @@
                       <div class="form-group">
                           <div class="col-xs-6">
                              <label for="mobile"><h4>Mobile</h4></label>
-                              <input type="text" class="form-control" name="mobile" id="mobile" placeholder="Enter your valid mobile number" value="{{info[4]}}" required>
+                              <input type="number" class="form-control" name="mobile" id="mobile" placeholder="Enter your valid mobile number" value="{{info[4]}}" required>
                           </div>
                       </div>
 
@@ -215,53 +215,84 @@
                               <input type="text" class="form-control" id="location" placeholder="batch" title="Enter your batch e.g. 2017-19" value="{{info[6]}}" required readonly>
                           </div>
                       </div>
-
+                      {% if info[8] %}
+                      <div class="form-group">
+                          <div class="col-xs-6">
+                              <label for="dob"><h4>Date of Birth</h4></label>
+                              <input type="date" class="form-control" name="dob" id="dob" placeholder="Date of Birth" value="{{info[8]}}" required readonly>
+                          </div>
+                      </div>
+                      {% else %}
                       <div class="form-group">
                           <div class="col-xs-6">
                               <label for="dob"><h4>Date of Birth</h4></label>
                               <input type="date" class="form-control" name="dob" id="dob" placeholder="Date of Birth" required>
                           </div>
                       </div>
-
+                      {% endif %}
                   <hr>
                   <strong> College Details </strong>
                   <hr>
-
+                    {% if info[9] %}
                       <div class="form-group">
+                          <div class="col-xs-6">
+                            <label for="college"><h4>Percentage in Graduation (till 4<sup>th</sup>sem)</h4></label>
+                              <input type="text" class="form-control" name="college" id="college" placeholder="Percentage in College" value="{{info[9]}}" required readonly>
+                          </div>
+                      </div>
+                    {% else %}
+                    <div class="form-group">
                           <div class="col-xs-6">
                             <label for="college"><h4>Percentage in Graduation (till 4<sup>th</sup>sem)</h4></label>
                               <input type="text" class="form-control" name="college" id="college" placeholder="Percentage in College" required>
                           </div>
-                      </div>
-
+                    {% endif %}
+                    {% if info[10] == 0 or info[10] %}
                       <div class="form-group">
                           <div class="col-xs-6">
                             <label for="backlogs"><h4>Number of Backlogs</h4></label>
-                              <input type="number" class="form-control" name="backlogs" id="backlogs" placeholder="Number of backlogs" required>
+                              <input type="number" class="form-control" name="backlogs" id="backlogs" placeholder="Number of backlogs" value="{{info[10]}}" required readonly>
                           </div>
                       </div>
+                      {% else %}
+                      <div class="form-group">
+                          <div class="col-xs-6">
+                            <label for="backlogs"><h4>Number of Backlogs</h4></label>
+                              <input type="number" class="form-control" name="backlogs" id="backlogs" placeholder="Number of backlogs"required>
+                          </div>
+                      </div>
+                      {% endif %}
 
                   <hr>
                   <strong> Class XII Details </strong>
                   <hr>
-
                       <div class="form-group">
                           <div class="col-xs-6">
                             <label for="percent12"><h4>Percentage in XII</h4></label>
-                              <input type="text" class="form-control" name="percent12" id="percent12" placeholder="Percentage in XII" required>
+                            {% if info[7] %}
+                              <input type="text" class="form-control" name="percent12" id="percent12" placeholder="Percentage in XII" value="{{info[7]}}" required readonly>
+                            {% else %}
+                            <input type="text" class="form-control" name="percent12" id="percent12" placeholder="Percentage in XII" required>
+                            {% endif %}
                           </div>
                       </div>
-
                       <div class="form-group">
                           <div class="col-xs-6">
                             <label for="py12"><h4>Year of passing of XII</h4></label>
+                            {% if info[11] %}
+                            <input type="number" class="form-control" name="py12" id="py12" placeholder="Year of passing" value = "{{info[11]}}" required readonly>
+                            {% else %}
                             <input type="number" class="form-control" name="py12" id="py12" placeholder="Year of passing" required>
+                            {% endif %}
                           </div>
                       </div>
 
                       <div class="form-group">
                           <div class="col-xs-6">
                             <label for="stream"><h4>Stream</h4></label>
+                            {% if info[16] %}
+                            <input type="text" class="form-control" name="stream" id="stream" value="{{info[16]}}" required readonly>
+                            {% else %}
                               <select type="text" class="form-control" name="stream" id="stream" placeholder="Choose your stream" required>
                                 <option value="Commerce">Commerce</option>
                                 <option value="Science">Science</option>
@@ -269,6 +300,7 @@
                                 <option value="Information Technology">Information Technology</option>
                                 <option value="Other">Other</option>
                               </select>
+                            {% endif %}
                           </div>
                       </div>
 
@@ -276,9 +308,15 @@
                           <div class="col-xs-6">
                             <label for="maths"><h4>Did you have Maths in 12<sup>th</sup>?</h4></label>
                             <br>
-                            <input type="radio" name="maths" id="maths" placeholder="Maths" value="With Maths" required> Yes
+                            {% if info[15] == "With Maths" %}
+                            <input type="radio" name="maths" id="maths" placeholder="Maths" value="With Maths" required checked="checked"> Yes
                             <br>
                             <input type="radio" name="maths" id="maths" placeholder="Non-Maths" value="Without Maths" required> No
+                            {% else %}
+                            <input type="radio" name="maths" id="maths" placeholder="Maths" value="With Maths" required> Yes
+                            <br>
+                            <input type="radio" name="maths" id="maths" placeholder="Non-Maths" value="Without Maths" required checked="checked"> No
+                            {% endif %}
                           </div>
                       </div>                     
 
@@ -289,14 +327,22 @@
                       <div class="form-group">
                           <div class="col-xs-6">
                             <label for="percent10"><h4>Percentage in X</h4></label>
+                            {% if info[12] %}
+                              <input type="text" class="form-control" name="percent10" id="percent10" placeholder="Percentage in X" value = "{{info[12]}}" required readonly>
+                            {% else %}
                               <input type="text" class="form-control" name="percent10" id="percent10" placeholder="Percentage in X" required>
+                            {% endif %}
                           </div>
                       </div>
                       
                       <div class="form-group">
                           <div class="col-xs-6">
                             <label for="py10"><h4>Year of passing of X</h4></label>
+                            {% if info[13] %}
+                              <input type="number" class="form-control" name="py10" id="py10" placeholder="Year of passing" value = "{{info[13]}}" required readonly>
+                            {% else %}
                               <input type="number" class="form-control" name="py10" id="py10" placeholder="Year of passing" required>
+                            {% endif %}
                           </div>
                       </div>
 
@@ -305,7 +351,11 @@
                       <div class="form-group">
                           <div class="col-xs-12">
                             <label for="message">Career Objective</label>
+                            {% if info[14] %}
+                            <textarea cols="30" rows="5" type="text" class="form-control" id="careerobjective" name="careerobjective" required readonly>{{info[14]}}</textarea>
+                            {% else %}
                             <textarea cols="30" rows="5" type="text" class="form-control" id="careerobjective" name="careerobjective" required></textarea>
+                            {% endif %}
                           </div>
                       </div>
 
@@ -315,19 +365,25 @@
                           <div class="col-xs-12">
                             <label for="placement">Are you looking forward for gainful placement?</label>
                             <br>
-                            <input type="radio" name="placement" id="placement" placeholder="Interested" value="Interested" required onclick="f4()"> Yes
+                            {% if info[19] == "Interested" %}
+                            <input type="radio" name="placement" id="placement" placeholder="Interested" value="Interested" required onclick="f4()" checked="checked"> Yes
                             <br>
                             <input type="radio" name="placement" id="placement" placeholder="Not Interested" value="Not Interested" onclick="f5()" required> No
+                            {% else %}
+                            <input type="radio" name="placement" id="placement" placeholder="Interested" value="Interested" required onclick="f4()"> Yes
+                            <br>
+                            <input type="radio" name="placement" id="placement" placeholder="Not Interested" value="Not Interested" onclick="f5()" required checked="checked"> No
                           </div>
+                          {% endif %}
                       </div>
 
                       <div class="form-group" id="interested" style="display: none;">
                           <div class="col-xs-12">
                             <label for="placement">Interested</label>
                             <label for="Area of interest">Please mention your area of interest (atleast 3)</label>
-                            <textarea cols="30" rows="5" type="text" class="form-control" id="areaofinterest" name="areaofinterest" placeholder="Please mention your area of interest (atleast 3)" required></textarea>
+                            <textarea cols="30" rows="5" type="text" class="form-control" id="areaofinterest" name="areaofinterest" placeholder="Please mention your area of interest (atleast 3)" required>{{info[17]}}</textarea>
                             <label for="Add-ons">Please provide details of any skills/certificates/diploma/trainings you have undergone as an add-on to your curriculum</label>
-                            <textarea cols="30" rows="5" type="text" class="form-control" id="addons" name="addons" placeholder="Please provide required details" required></textarea>
+                            <textarea cols="30" rows="5" type="text" class="form-control" id="addons" name="addons" placeholder="Please provide required details" required>{{info[18]}}</textarea>
                           </div>
                       </div>
 
@@ -335,12 +391,16 @@
                           <div class="col-xs-12">
                             <label for="placement">Not Interested</label>
                             <label for="Area of interest">Please consider the following and select</label>
-                            <input type="checkbox" name="areaofinterest" id="areaofinterest" value="Higher Education" required> Higher Education
-                            <input type="checkbox" name="areaofinterest" id="areaofinterest" value="Family Business" required> Family Business
-                            <input type="checkbox" name="areaofinterest" id="areaofinterest" value="Entrepreneur" required> Become an Entrepreneur
-                            <input type="checkbox" name="areaofinterest" id="areaofinterest" value="Government Service" required> Civil Services/ Defence Service/ other Government Service
-                            <input type="checkbox" name="areaofinterest" id="areaofinterest" value="Any Other" required> Any Other (Please Specify Below)
+                            {% if info[17] %}
+                            <input type="text" name="areaofinterest" id="areaofinterest" value="{{info[17]}}" readonly>
+                            {% else %}
+                            <input type="checkbox" name="areaofinterest" id="areaofinterest" value="Higher Education"> Higher Education
+                            <input type="checkbox" name="areaofinterest" id="areaofinterest" value="Family Business"> Family Business
+                            <input type="checkbox" name="areaofinterest" id="areaofinterest" value="Entrepreneur"> Become an Entrepreneur
+                            <input type="checkbox" name="areaofinterest" id="areaofinterest" value="Government Service"> Civil Services/ Defence Service/ other Government Service
+                            <input type="checkbox" name="areaofinterest" id="areaofinterest" value="Any Other"> Any Other (Please Specify Below)
                             <input type="text" name="areaofinterest" id="areaofinterest">
+                            {% endif %}
                           </div>
 
                       </div>
