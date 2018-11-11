@@ -84,7 +84,7 @@ def recruiters():
 def events():
    con = sql.connect("static/test.db")
    cur = con.cursor()
-   cur.execute("select companyname,role,date,salary,venue,sno from event")
+   cur.execute("select companyname,role,date,salary,venue,sno from event ORDER BY date")
    inf = cur.fetchall()
    inf = [i for i in inf]
    for i in inf:
