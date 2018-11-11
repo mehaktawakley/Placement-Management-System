@@ -85,7 +85,7 @@ def events():
    con = sql.connect("static/test.db")
    cur = con.cursor()
    cur.execute("DELETE from event where date < (select date('now'))")
-   cur.execute("select companyname,role,date,salary,venue,sno,salary,interviewprocess,other,link from event ORDER BY date")
+   cur.execute("select companyname,role,date,salary,venue,sno,salary,interviewprocess,other,link,dater from event ORDER BY date")
    inf = cur.fetchall()
    inf = [i for i in inf]
    for i in inf:
@@ -167,9 +167,10 @@ def createevent():
          venue = request.form['venue']
          other = request.form['other']
          link = request.form['link']
+         dater = request.form['dater']
          con = sql.connect("static/test.db")
          cur = con.cursor()
-         cur.execute("INSERT INTO event(companyname,role, date , salary , venue, interviewprocess, other, link) VALUES(?,?,?,?,?,?,?,?)",(cname,role,date,salary,venue,interviewprocess,other,link))
+         cur.execute("INSERT INTO event(companyname,role, date , salary , venue, interviewprocess, other, link, dater) VALUES(?,?,?,?,?,?,?,?,?)",(cname,role,date,salary,venue,interviewprocess,other,link,dater))
          con.commit()
          cur.close()
          con.close()
