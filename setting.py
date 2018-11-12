@@ -78,7 +78,18 @@ def about():
 
 @app.route('/recruiters')
 def recruiters():
-   return render_template("recruiters.html")
+   con = sql.connect("static/test.db")
+   cur = con.cursor()
+   cur.execute("select companyid,name,cdetails,roleoffered,eligibility,location,salary,other,responsibility,image from company")
+   inf = cur.fetchall()
+   inf = [i for i in inf]
+   for i in inf:
+      for j in i:
+         print(j)
+      print()
+   cur.close()
+   con.close()
+   return render_template("recruiters.html",result=inf)
 
 @app.route('/events')
 def events():
