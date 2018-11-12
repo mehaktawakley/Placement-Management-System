@@ -140,9 +140,58 @@
       <section class="probootstrap-section">
         <div class="container">
           
+          <strong>*Click on the card to know more about the company.</strong>
 
           <div class="row">
+            {% for r in result %}
             <div class="col-md-3 col-sm-6">
+              <a a data-toggle="modal" data-target="#recruitersModal{{r[0]}}" class="probootstrap-featured-news-box" style="color: inherit;">
+              <div class="probootstrap-teacher text-center probootstrap-animate">
+                <figure class="media">
+                  <img src="../static/img/img/{{r[9]}}" alt="Deloitte" class="img-responsive">
+                </figure>
+                <div class="text">
+                  <h3 style="font-size: 15px; font-weight: bold;">{{r[1]}}</h3>
+                  <p>Education Qualification: {{r[4]}}</p>
+                </div>
+              </div>
+              </a>
+            </div>
+            {% endfor %}
+          </div>
+
+
+          <!-- Modals for Recruiters -->
+      {% for r in result %}
+      <div class="modal fade" id="recruitersModal{{r[0]}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="eventModalLabel">{{r[1]}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <span class="probootstrap-date"><i class="icon-user"></i>About the Company: {{r[2]}}</span>
+            <span class="probootstrap-date"><i class="icon-calendar"></i>Role Offered: {{r[3]}}</span>
+            <span class="probootstrap-location"><i class="icon-location2"></i>Eligibility: {{r[4]}}</span>
+            <span class="probootstrap-location"><i class="icon-tag"></i>Location: {{r[5]}}</span>
+            <span class="probootstrap-location"><i class="icon-mic"></i>Salary Offered: {{r[6]}}</span>
+            <span class="probootstrap-location"><i class="icon-books"></i>Education and Work Experience: {{r[7]}}</span>
+            <span class="probootstrap-location"><i class="icon-link2"></i>Roles and Responsibilty: {{r[8]}})</span>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+      {% endfor %}
+
+
+            <!--<div class="col-md-3 col-sm-6">
               <div class="probootstrap-teacher text-center probootstrap-animate">
                 <figure class="media">
                   <img src="../static/img/img/Deloitte.png" alt="Deloitte" class="img-responsive">
@@ -283,7 +332,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div>-->
 
           <div class="row">
             <div class="col-md-3 col-sm-6">
