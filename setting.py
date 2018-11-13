@@ -125,6 +125,19 @@ def coordinator():
       return render_template("coordinator.html",un=(session['user']).title(),eid=output)
    return redirect("/")
 
+# @app.route('/result')
+# def coordinator():
+#    if 'user' in session:
+#       con = sql.connect("static/test.db")
+#       cur = con.cursor()
+#       cur.execute("select * from student where percent10 > 50 and percent12 > 60")
+#       inf = cur.fetchall()
+#       inf = [j for i in inf for j in i]
+      
+#       cur.close()
+#       con.close()
+#    return redirect("/")
+
 @app.route('/student')
 def student():
    if 'user' in session:
