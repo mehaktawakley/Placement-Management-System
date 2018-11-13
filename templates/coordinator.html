@@ -213,9 +213,33 @@
 
         <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12" id="el" style="display: none">
         <!-- Right -->
-          <a href="#"><strong><span class="fa fa-dashboard"></span>Create List of Eligible Students </strong></a>
+          <a href="#"><strong><span class="fa fa-dashboard"></span>Create or Get List of Students </strong></a>
           <hr>
-          <form class="form" action="/createlist" method="post" id="eligiblelist">
+
+          <h2 id="get" onclick="fg()" style="font-size: 24px;">Get List Of Students</h2>
+          
+          <form class="form" action="" method="post" id="listof" style="display: none;">
+              <div class="form-group">
+                <div class="col-xs-12">
+                  <label for="listof"><h4>Get List Of:</h4></label>
+                  <br>
+                  <input type="radio" name="listof" placeholder="interested" value="Interested" required> Interested
+                  <br>
+                  <input type="radio" name="listof" placeholder="Not Interested" value="Not Interested" required> Not Interested
+                </div>
+              </div>
+              <div class="form-group">
+                  <div class="col-xs-12">
+                    <br>
+                    <button class="btn btn-lg btn-success" type="submit">Submit</button>
+                    <button class="btn btn-lg" type="reset">Reset</button>
+                  </div>
+                </div>
+          </form><br>
+          
+          <h2 id="create" onclick="fc()" style="font-size: 24px;">Create List Of Students</h2>
+            
+          <form class="form" action="/createlist" method="post" id="eligiblelist" style="display: none;">
                       <div class="form-group">
                           <div class="col-xs-12">
                             <label for="pursose"><h4>Purpose for Creating List</h4></label>
@@ -309,6 +333,8 @@
         var x = document.getElementById('ce');
         var y = document.getElementById('el');
         var z = document.getElementById('cp');
+        var a = document.getElementById('listof');
+        var b = document.getElementById('eligiblelist');
 
 
         function f1(argument) {
@@ -349,6 +375,26 @@
             x.style.display = "none";
             y.style.display = "none";
             z.style.display = "block";
+          }
+        }
+
+        function fg(argument) {
+          if (a.style.display === "none") 
+          {
+            a.style.display = "block";
+            b.style.display = "none";
+            document.getElementById('get').style.color = "#6a56ee";
+            document.getElementById('create').style.color = "black";
+          }
+        }
+
+        function fc(argument) {
+          if (b.style.display === "none") 
+          {
+            b.style.display = "block";
+            a.style.display = "none";
+            document.getElementById('get').style.color = "black";
+            document.getElementById('create').style.color = "#6a56ee";
           }
         }
 
