@@ -131,13 +131,13 @@ def getlist():
       listType = request.form['listof']
       con = sql.connect("static/test.db")
       cur = con.cursor()
-      cur.execute('select * from student where interested = ?',(listType,))
+      cur.execute('select enrollmentno,name,batch,course,section,email,percent12,percent10,college,backlogs from student where interested = ?',(listType,))
       inf = cur.fetchall()
       with open('student.csv', 'w', newline='') as f_handle:
          writer = csv.writer(f_handle)
          # Add the header/column names
-         #header = ['make', 'style', 'color', 'plate']
-         #writer.writerow(header)
+         header = ['Enrollment No','Name','Batch','Course','Section','Email Id','12th Percentage','10th Percentage','College Percentage','No. of Backlogs']
+         writer.writerow(header)
          # Iterate over `data`  and  write to the csv file
          for row in inf:
             writer.writerow(row)
@@ -154,13 +154,13 @@ def createlist():
       percent10 = request.form['percent10']
       con = sql.connect("static/test.db")
       cur = con.cursor()
-      cur.execute('select * from student where college >= ? and backlogs <= ? and percent12 >= ? and percent10 >= ?',(college,backlogs,percent12,percent10,))
+      cur.execute('select enrollmentno,name,batch,course,section,email,percent12,percent10,college,backlogs from student where college >= ? and backlogs <= ? and percent12 >= ? and percent10 >= ?',(college,backlogs,percent12,percent10,))
       inf = cur.fetchall()
       with open('student.csv', 'w', newline='') as f_handle:
          writer = csv.writer(f_handle)
          # Add the header/column names
-         #header = ['make', 'style', 'color', 'plate']
-         #writer.writerow(header)
+         header = ['Enrollment No','Name','Batch','Course','Section','Email Id','12th Percentage','10th Percentage','College Percentage','No. of Backlogs']
+         writer.writerow(header)
          # Iterate over `data`  and  write to the csv file
          for row in inf:
             writer.writerow(row)
