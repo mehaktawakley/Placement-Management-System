@@ -129,10 +129,32 @@ def coordinator():
 def getlist():
    if 'user' in session:
       listType = request.form['listof']
-      print(listType)
       con = sql.connect("static/test.db")
       cur = con.cursor()
       cur.execute('select * from student where interested = ?',(listType,))
+      inf = cur.fetchall()
+      with open('student.csv', 'w', newline='') as f_handle:
+         writer = csv.writer(f_handle)
+         # Add the header/column names
+         #header = ['make', 'style', 'color', 'plate']
+         #writer.writerow(header)
+         # Iterate over `data`  and  write to the csv file
+         for row in inf:
+            writer.writerow(row)
+      cur.close()
+      con.close()
+   return send_file('student.csv', mimetype='text/csv', attachment_filename='student.csv', as_attachment=True)
+
+@app.route('/createlist', methods=["POST"])
+def createlist():
+   if 'user' in session:
+      college = request.form['college']
+      backlogs = request.form['backlogs']
+      percent12 = request.form['percent12']
+      percent10 = request.form['percent10']
+      con = sql.connect("static/test.db")
+      cur = con.cursor()
+      cur.execute('select * from student where college >= ? and backlogs <= ? and percent12 >= ? and percent10 >= ?',(college,backlogs,percent12,percent10,))
       inf = cur.fetchall()
       with open('student.csv', 'w', newline='') as f_handle:
          writer = csv.writer(f_handle)
