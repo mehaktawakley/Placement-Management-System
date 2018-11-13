@@ -1,5 +1,5 @@
-from flask import Flask, render_template, redirect, url_for, request, g, session
-import sqlite3 as sql,os
+from flask import Flask, render_template, redirect, url_for, request, g, session, send_file
+import sqlite3 as sql,os,csv
 
 app=Flask(__name__)
 app.config["CACHE_TYPE"] = "null"
@@ -125,18 +125,26 @@ def coordinator():
       return render_template("coordinator.html",un=(session['user']).title(),eid=output)
    return redirect("/")
 
-# @app.route('/result')
-# def coordinator():
-#    if 'user' in session:
-#       con = sql.connect("static/test.db")
-#       cur = con.cursor()
-#       cur.execute("select * from student where percent10 > 50 and percent12 > 60")
-#       inf = cur.fetchall()
-#       inf = [j for i in inf for j in i]
-      
-#       cur.close()
-#       con.close()
-#    return redirect("/")
+@app.route('/getlist', methods=["POST"])
+def getlist():
+   if 'user' in session:
+      listType = request.form['listof']
+      print(listType)
+      con = sql.connect("static/test.db")
+      cur = con.cursor()
+      cur.execute('select * from student where interested = ?',(listType,))
+      inf = cur.fetchall()
+      with open('student.csv', 'w', newline='') as f_handle:
+         writer = csv.writer(f_handle)
+         # Add the header/column names
+         #header = ['make', 'style', 'color', 'plate']
+         #writer.writerow(header)
+         # Iterate over `data`  and  write to the csv file
+         for row in inf:
+            writer.writerow(row)
+      cur.close()
+      con.close()
+   return send_file('student.csv', mimetype='text/csv', attachment_filename='student.csv', as_attachment=True)
 
 @app.route('/student')
 def student():
