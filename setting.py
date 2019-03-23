@@ -176,7 +176,6 @@ def student():
       cur.execute("select name,enrollmentno,course,section,contactno,email,batch,percent12,dob,college,backlogs,py12,percent10,py10,careerobjective,maths,stream,areaofinterest,addons,interested from student where enrollmentno = ?",(session['enr'],))
       inf = cur.fetchall()
       inf = [j for i in inf for j in i]
-      print("********",inf[14])
       cur.close()
       con.close()
       return render_template("student.html",un=(session['user']).title(),info=inf)
@@ -290,4 +289,4 @@ def changepasst():
       return redirect("/coordinator")
    return redirect("/")
 if __name__=="__main__":
-	app.run(debug=True,port=5000)
+	app.run(debug=True,port=4000)

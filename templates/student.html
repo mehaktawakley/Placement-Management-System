@@ -159,7 +159,7 @@
                     </div>  
            </form>
         </div>
-        
+
         <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12" id="my" style="display: none">
         <!-- Right -->
           <a href="#"><strong><span class="fa fa-dashboard"></span> My Form </strong></a>
@@ -219,7 +219,7 @@
                       <div class="form-group">
                           <div class="col-xs-6">
                               <label for="dob"><h4>Date of Birth</h4></label>
-                              <input type="date" class="form-control" name="dob" id="dob" placeholder="Date of Birth" value="{{info[8]}}" required readonly>
+                              <input type="text" class="form-control" name="dob" id="dob" placeholder="Date of Birth" value="{{info[8]}}" required readonly>
                           </div>
                       </div>
                       {% else %}
@@ -230,9 +230,11 @@
                           </div>
                       </div>
                       {% endif %}
+                  
                   <hr>
                   <strong> College Details </strong>
                   <hr>
+
                     {% if info[9] %}
                       <div class="form-group">
                           <div class="col-xs-6">
@@ -246,7 +248,9 @@
                             <label for="college"><h4>Percentage in Graduation (till 4<sup>th</sup>sem)</h4></label>
                               <input type="text" class="form-control" name="college" id="college" placeholder="Percentage in College" required>
                           </div>
+                    </div>
                     {% endif %}
+
                     {% if info[10] == 0 or info[10] %}
                       <div class="form-group">
                           <div class="col-xs-6">
@@ -276,6 +280,7 @@
                             {% endif %}
                           </div>
                       </div>
+
                       <div class="form-group">
                           <div class="col-xs-6">
                             <label for="py12"><h4>Year of passing of XII</h4></label>
@@ -373,9 +378,9 @@
                             <input type="radio" name="placement" id="placement" placeholder="Interested" value="Interested" required onclick="f4()"> Yes
                             <br>
                             <input type="radio" name="placement" id="placement" placeholder="Not Interested" value="Not Interested" onclick="f5()" required checked="checked"> No
+                            {% endif %}
                           </div>
-                          {% endif %}
-                      </div>
+                         </div>
 
                       <div class="form-group" id="interested" style="display: none;">
                           <div class="col-xs-12">
@@ -442,6 +447,7 @@
                       </div>
           </form>
         </div>
+
 
       </section>
 
