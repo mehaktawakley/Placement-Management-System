@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Information</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">  
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.jss"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+        <link rel="stylesheet" href="static/style.css">
+    </head>
+    <body>
+            <!-- MultiStep Form -->
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <form id="msform" name="detailss">
+            <!-- progressbar -->
+            <ul id="progressbar">
+                <li class="active">Basic Details</li>
+                <li>Academic Details</li>
+                <li>Work Experience</li>
+                <li>Skills And Awards</li>
+                <li>Personal Details (Optional)</li>
+                <li>References (Optional)</li>
+            </ul>
+            <!-- fieldsets -->
+            <fieldset id="bd">
+                <h2 class="fs-title">Basic Details</h2>
+                <h3 class="fs-subtitle">Tell us something more about you</h3>
+                <input type="text" name="uname" placeholder="Name" id="uname"/>
+                <input type="email" name="uemail" placeholder="Email ID" id="uemail"/>
+                <input type="text" name="umobno" placeholder="Mobile Number" id="umobno">
+                <input type="text" name="uaddress" placeholder="Address" id="uaddress">
+                <input type="url" name="ulinkedin" placeholder="LinkedIn Account" id="ulaccount">
+                <input type="url" name="uportfolio" placeholder="Twitter/Blog/Portfolio" id="uportfolio">
+                <input type="text" name="uobjective" placeholder="Objective" id="uobjective">
+                <input type="button" name="next" class="action-button" value="Next" id="basicDetails"/>
+            </fieldset>
+            <fieldset>
+                <h2 class="fs-title">Academic Details</h2>
+                <h3 class="fs-subtitle">Fill your Academic Details</h3>
+                <div id="acadform">
+                    <select name="degree" id="degree" class="dropdwn" >
+                        <option value="Degree" disabled selected>Degree</option>
+                        <option value="Secondary Level (Xth class)">Secondary Level (Xth class)</option>
+                        <option value="Higher Secondary Level (XIIth class)">Higher Secondary Level (XIIth class)</option>
+                        <option value="Graduate">Graduate</option>
+                        <option value="Post Graduate">Post Graduate</option>
+                        <option value="Doctoral">Doctoral</option>
+                    </select>
+                    <input type="text" name="course" placeholder="Course Name" id="course" />
+                    <input type="number" name="year" placeholder="Year of Passing" id="year" />
+                    <input type="text" name="uniname" placeholder="University/ Institute/ School" id="uniname" />
+                    <input type="text" name="specialization" placeholder="Specialization" id="specialization" />
+                    <input type="number" name="marksobt" placeholder="CGPA/ Marks Obtained" id="marksobt" />
+                    <input type="number" name="markstot" placeholder="Total CGPA/ Marks" id="markstot" />
+                    <input type="text" name="marks" id = "marks" hidden/>
+                </div>
+                <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                <input type="button" name="next" class="next action-button" value="Next"/>
+            </fieldset>
+            <fieldset>
+                <h2 class="fs-title">Work Experience</h2>
+                <h3 class="fs-subtitle">Fill Details About Your Work Experience</h3>
+                <div id="workexperience">
+                    <input type="text" name="ename" placeholder="Name of Employer" id="ename"/>
+                    <select name="etype" id="etype" class="dropdwn">
+                            <option value="Employement Type" disabled selected>Employement Type</option>
+                            <option value="Full Time">Full Time</option>
+                            <option value="Part Time">Part Time</option>
+                            <option value="Internship">Internship</option>
+                            <option value="Freelancing">Freelancing</option>
+                            <option value="Work From Home">Work From Home</option>
+                    </select></br>
+                    <label for="joindate" class="col-md-2" style="padding-top:15px; float: left;">Duration From</label>
+                    <input type="date" id="datePickerId" name="joindatee" class="col-md-10" style="width: 83.3%;"/> 
+                    <label for="enddate" class="col-md-2" style="padding-top:15px; float: left;">Duration To</label>
+                    <input type="date" name="enddate" class="col-md-10" style="width: 83.3%;"/>          
+                    <input type="text" name="designation" placeholder="Designation" id="designation"/>
+                    <input type="text" name="duties" placeholder="Nature of Duties" id="duties"/>     
+                </div>
+                    <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                    <input type="button" name="next" class="next action-button" value="Next"/>
+            </fieldset>
+            <fieldset>
+                    <h2 class="fs-title">Skills And Awards</h2>
+                    <h3 class="fs-subtitle">Lets Us Know About Your Skills and Achivements</h3>
+                    <label for="skills">Add Your Skills</label>
+                    <input type="text" name="skills" placeholder="Skills" id="skills"/>
+                    <label for="activities">Tell About Your Activities</label>
+                    <input type="text" name="activities" placeholder="Activities" id="activities"/>
+                    <label for="achievements">Mention Yours Awards and Achivements</label>
+                    <input type="text" name="achievements" placeholder="Awards and Achievements" id="achievements" style="text-align:left"/>
+                    <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                    <input type="button" name="next" class="next action-button" value="Next"/>
+            </fieldset>
+            <fieldset>
+                    <h2 class="fs-title">Personal Details</h2>
+                    <h3 class="fs-subtitle">Mention Your Other Details</h3>
+                    <input type="text" name="fname" placeholder="Father's Name" id="fname"/>
+                    <label for="DOB" class="col-md-2" style="padding-top:15px; float: left;">Date of Birth</label>
+                    <input type="date" name="DOB" class="col-md-10" style="width: 83.3%;"/>
+                    <label for="sex" class="col-md-2">Gender</label>
+                    <select name="sex" id="sex" class="dropdwn col-md-10" style="width: 83.3%;">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                    </select>
+                    <input type="text" name="nationality" placeholder="Nationality" id="nationality"/>
+                    <input type="text" name="hai" placeholder="Hobbies and Interest" id="hai"/>
+                    <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                    <input type="button" name="next" class="next action-button" value="Next"/>
+            </fieldset>
+            <fieldset>
+                    <h2 class="fs-title">References</h2>
+                    <h3 class="fs-subtitle">Mention Your References (If Any)</h3>
+                    <div class="refernces">
+                        <input type="text" name="rname" placeholder="Reference Name" id="rname"/>
+                        <input type="text" name="rorg" placeholder="Organization" id="rorg"/>
+                        <input type="number" pattern="/[6|7|8|9]\d{9}/" name="rnum" placeholder="Mobile Number" id="rnum"/>
+                        <input type="email" name="remail" placeholder="Email ID" id="remail"/>
+                    </div>
+                    <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                    <input type="submit" name="Submit" class="submit action-button" value="Submit"/>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<!-- /.MultiStep Form -->
+    </body>
+    <script type="text/javascript" src="static/script.js"></script>
+</html>
