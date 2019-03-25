@@ -9,3 +9,8 @@ This application aims to reduce as much as possible errors while entering the da
 2.	To allow students to interact with the system for the purpose of form filling.
 3.	To allow placement cell coordinators to interact with the system so that they can share various information with the students, fill in and maintain company details and report generation.
 
+### Purpose:
+1.	Reduce manual work and errors while entering data.
+2.	Reduce load on placement coordinator.
+3.	Easy and fast retrieval of information.
+4.	Easy to update information or bring changes.
