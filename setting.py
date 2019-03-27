@@ -1,9 +1,11 @@
-from flask import Flask, render_template, redirect, url_for, request, g, session, send_file
+from flask import Flask, render_template, redirect, url_for, request, g, session, send_file, send_from_directory
 import sqlite3 as sql,os,csv
 
 app=Flask(__name__)
 app.config["CACHE_TYPE"] = "null"
 app.secret_key = os.urandom(24)
+
+APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 @app.route("/login_server", methods=["POST"])
 def login_server():
@@ -288,5 +290,37 @@ def changepasst():
          con.close()
       return redirect("/coordinator")
    return redirect("/")
+
+@app.route('/upload', methods=["POST"])
+def upload():
+    target = os.path.join(APP_ROOT, 'static/Upload')
+    print(target)
+    if not os.path.isdir(target):
+        os.mkdir(target)
+
+    print(request.files.getlist("file"))
+    for upload in request.files.getlist("file"):
+        print(upload)
+        print("{} is the file name".format(upload.filename))
+        filename = upload.filename
+        ext = os.path.splitext(filename)[1]
+        if (ext == ".jpg") or (ext == ".png") or (ext == ".jpeg") or (ext == ".pdf"):
+            print("File supported moving on...")
+        else:
+            render_template("<h1>File Not Supported</h1>")
+        
+        destination = "/".join([target, filename])
+        print("Accept incoming file:", filename)
+        print("Save to:",destination)
+        upload.save(destination)
+        con = sql.connect("static/test.db")
+        cur = con.cursor()
+        cur.execute("UPDATE student SET classten=? WHERE enrollmentno=?",(filename,session['enr']))
+        con.commit()
+        cur.close()
+        con.close()
+    return "<h1>File Uploaded</h1>"
+
+
 if __name__=="__main__":
 	app.run(debug=True,port=4000)

@@ -420,20 +420,56 @@
           <!-- Right -->
             <a href="#"><strong><span class="fa fa-dashboard"></span> Upload Documents </strong></a>
             <hr>
-            <form class="form" action="/changepass" method="post" id="placementForm">
+            <form class="form" action="{{ url_for('upload')}}" method="post" id="placementForm" enctype="multipart/form-data">
                         <div class="form-group">                        
                             <div class="col-xs-6">
-                                <label for="cpass"><h4>Current Password:</h4></label>
-                                <input type="text" class="form-control" name="cpass" placeholder="Current Password" required>
+                                <label for="classten"><h4>Upload X<sup>th</sup> Marksheet:</h4></label>
+                                <input type="file" class="form-control" name="file" accept="image/*, application/pdf" max="1">
                             </div>
+                        </div>
+
+                        <div class="form-group">                        
+                          <div class="col-xs-6">
+                              <label for="classtwelve"><h4>Upload XII<sup>th</sup> Marksheet:</h4></label>
+                              <input type="file" class="form-control" name="file" accept="image/*, application/pdf" max="1">
+                          </div>
+                        </div>
+
+                        <div class="form-group">                        
+                          <div class="col-xs-6">
+                              <label for="semone"><h4>Upload Semester-I Marksheet:</h4></label>
+                              <input type="file" class="form-control" name="file" accept="image/*, application/pdf" max="1">
+                          </div>
+                        </div>
+
+                        <div class="form-group">                        
+                          <div class="col-xs-6">
+                              <label for="semone"><h4>Upload Semester-II Marksheet:</h4></label>
+                              <input type="file" class="form-control" name="file" accept="image/*, application/pdf" max="1">
+                          </div>
+                        </div>
+
+                        <div class="form-group">                        
+                          <div class="col-xs-6">
+                              <label for="semone"><h4>Upload Semester-III Marksheet:</h4></label>
+                              <input type="file" class="form-control" name="file" accept="image/*, application/pdf" max="1">
+                          </div>
+                        </div>
+
+                        <div class="form-group">                        
+                          <div class="col-xs-6">
+                              <label for="semone"><h4>Upload Semester-IV Marksheet:</h4></label>
+                              <input type="file" class="form-control" name="file" accept="image/*, application/pdf" max="1">
+                          </div>
+                        </div>
+
+                        <div class="form-group">                        
+                          <div class="col-xs-6">
+                              <label for="semone"><h4>Upload Semester-V Marksheet:</h4></label>
+                              <input type="file" class="form-control" name="file" accept="image/*, application/pdf" max="1">
+                          </div>
                         </div>
   
-                        <div class="form-group">                          
-                            <div class="col-xs-6">
-                              <label for="newpass"><h4>New Password:</h4></label>
-                                <input type="text" class="form-control" name="newpass"  placeholder ="New Password" required>
-                            </div>
-                        </div>
                         <div class="form-group">
                              <div class="col-xs-12">
                                   <br>
