@@ -356,7 +356,7 @@ def upload():
 
    con = sql.connect("static/test.db")
    cur = con.cursor()
-   cur.execute("UPDATE student SET (classten=?,classtwelve=?,semone=?,semtwo?,semthree=?,semfour=?,semfive=?) WHERE enrollmentno=?",(files['classten'],files['classtwelve'],files['semone'],files['semtwo'],files['semthree'],files['semfour'],files['semfive'],session['enr']))
+   cur.execute("UPDATE student SET classten=?,classtwelve=?,semone=?,semtwo=?,semthree=?,semfour=?,semfive=? WHERE enrollmentno=?",(files['classten'],files['classtwelve'],files['semone'],files['semtwo'],files['semthree'],files['semfour'],files['semfive'],session['enr']))
    con.commit()
    cur.close()
    con.close()
