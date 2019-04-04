@@ -293,33 +293,74 @@ def changepasst():
 
 @app.route('/upload', methods=["POST"])
 def upload():
-    target = os.path.join(APP_ROOT, 'static/Upload')
-    print(target)
-    if not os.path.isdir(target):
-        os.mkdir(target)
+   target = os.path.join(APP_ROOT, 'static/Upload')
+   print(target)
 
-    print(request.files.getlist("file"))
-    for upload in request.files.getlist("file"):
-        print(upload)
-        print("{} is the file name".format(upload.filename))
-        filename = upload.filename
-        ext = os.path.splitext(filename)[1]
-        if (ext == ".jpg") or (ext == ".png") or (ext == ".jpeg") or (ext == ".pdf"):
+   KeyList = ["classten", "classtwelve", "semone", "semtwo", "semthree", "semfour", "semfive"]
+   files = {}
+   for i in KeyList:
+      files[i] = None
+
+   print(files)
+
+   if not os.path.isdir(target):
+      os.mkdir(target)
+        
+   for i in KeyList:
+      for upload in request.files.getlist(i):
+         print(upload)
+         print("{} is the file name".format(upload.filename))
+         files[i] = upload.filename
+         ext = os.path.splitext(files[i])[1]
+         if (ext == ".jpg") or (ext == ".png") or (ext == ".jpeg") or (ext == ".pdf"):
             print("File supported moving on...")
-        else:
+         else:
             render_template("<h1>File Not Supported</h1>")
         
-        destination = "/".join([target, filename])
-        print("Accept incoming file:", filename)
-        print("Save to:",destination)
-        upload.save(destination)
-        con = sql.connect("static/test.db")
-        cur = con.cursor()
-        cur.execute("UPDATE student SET classten=? WHERE enrollmentno=?",(filename,session['enr']))
-        con.commit()
-        cur.close()
-        con.close()
-    return "<h1>File Uploaded</h1>"
+         destination = "/".join([target, files[i]])
+         print("Accept incoming file:", files[i])
+         print("Save to:",destination)
+         upload.save(destination)
+
+   """print(request.files.getlist("classten"))
+   for upload in request.files.getlist("classten"):
+      print(upload)
+      print("{} is the file name".format(upload.filename))
+      filename = upload.filename
+      ext = os.path.splitext(filename)[1]
+      if (ext == ".jpg") or (ext == ".png") or (ext == ".jpeg") or (ext == ".pdf"):
+         print("File supported moving on...")
+      else:
+         render_template("<h1>File Not Supported</h1>")
+        
+      destination = "/".join([target, filename])
+      print("Accept incoming file:", filename)
+      print("Save to:",destination)
+      upload.save(destination)
+
+   print(request.files.getlist("classten"))
+   for upload in request.files.getlist("classten"):
+      print(upload)
+      print("{} is the file name".format(upload.filename))
+      d[name] = upload.filename
+      ext = os.path.splitext(filename)[1]
+      if (ext == ".jpg") or (ext == ".png") or (ext == ".jpeg") or (ext == ".pdf"):
+         print("File supported moving on...")
+      else:
+         render_template("<h1>File Not Supported</h1>")
+        
+      destination = "/".join([target, filename])
+      print("Accept incoming file:", filename)
+      print("Save to:",destination)
+      upload.save(destination)"""
+
+   con = sql.connect("static/test.db")
+   cur = con.cursor()
+   cur.execute("UPDATE student SET (classten=?,classtwelve=?,semone=?,semtwo?,semthree=?,semfour=?,semfive=?) WHERE enrollmentno=?",(files['classten'],files['classtwelve'],files['semone'],files['semtwo'],files['semthree'],files['semfour'],files['semfive'],session['enr']))
+   con.commit()
+   cur.close()
+   con.close()
+   return "<h1>File Uploaded</h1>"
 
 
 if __name__=="__main__":
