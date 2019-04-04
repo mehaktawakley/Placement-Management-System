@@ -98,7 +98,8 @@
             <li onclick="f1()"><a href="#"><i class="icon-users"></i> Dashboard </a></li>
             <li onclick="f2()"><a href="#"><i class="icon-pen"></i> Create Event </a></li>
             <li onclick="f3()"><a href="#"><i class="icon-list"></i> Create List </a></li>
-            <li onclick="f4()"><a href="#"><i class="icon-lock"></i> Change Password </a></li>
+            <li onclick="f4()"><a href="#"><i class="icon-search"></i> Search Student </a></li>
+            <li onclick="f5()"><a href="#"><i class="icon-lock"></i> Change Password </a></li>
           </ul>
         </div><!-- /span-3 -->
         
@@ -297,6 +298,38 @@
           </form>
         </div>
 
+        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12" id="ss" style="display: none">
+          <!-- Right -->
+            <a href="#"><strong><span class="fa fa-dashboard"></span> Search Student </strong></a>
+            <hr>
+            <form class="form" action="/searchstudent" method="post" id="placementForm">
+                        <div class="form-group">                        
+                            <div class="col-xs-6">
+                                <label for="selectby"><h4>Select Student By:</h4></label>
+                                <select class="form-control" name="selectby" required>
+                                  <option value="enrollmentno">Enrollment Number</option>
+                                  <option value="name">Student Name</option>
+                                  <option value="emailid">Student Email ID</option>
+                                </select>
+                            </div>
+                        </div>
+  
+                        <div class="form-group">                          
+                            <div class="col-xs-6">
+                              <label for="newpass"><h4>Enter Search Value:</h4></label>
+                                <input type="text" class="form-control" name="searchvalue"  placeholder="Enter Search Value" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                             <div class="col-xs-12">
+                                  <br>
+                                  <button class="btn btn-lg btn-success" type="submit">Search</button>
+                                  <button class="btn btn-lg" type="reset">Reset</button>
+                              </div>
+                        </div>
+            </form>
+          </div>
+
         <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12" id="cp" style="display: none">
         <!-- Right -->
           <a href="#"><strong><span class="fa fa-dashboard"></span> Change Password </strong></a>
@@ -329,6 +362,7 @@
 
 
       <script type="text/javascript">
+        var v = document.getElementById('ss');
         var w = document.getElementById('db');
         var x = document.getElementById('ce');
         var y = document.getElementById('el');
@@ -344,7 +378,7 @@
             x.style.display = "none";
             y.style.display = "none";
             z.style.display = "none";
-
+            v.style.display = "none";
           }
         }
 
@@ -355,6 +389,7 @@
             x.style.display = "block";
             y.style.display = "none";
             z.style.display = "none";
+            v.style.display = "none";
           }
         }
 
@@ -365,16 +400,29 @@
             x.style.display = "none";
             y.style.display = "block";
             z.style.display = "none";
+            v.style.display = "none";
           }
         }
 
-        function f4(argument) {
+        function f4(argument){
+          if (v.style.display === "none")
+          {
+            w.style.display = "none";
+            x.style.display = "none";
+            y.style.display = "none"; 
+            z.style.display = "none";
+            v.style.display = "block";
+          }
+        }
+
+        function f5(argument) {
           if (z.style.display === "none") 
           {
             w.style.display = "none";
             x.style.display = "none";
             y.style.display = "none";
             z.style.display = "block";
+            v.style.display = "none";
           }
         }
 

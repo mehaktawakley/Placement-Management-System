@@ -270,6 +270,28 @@ def changepass():
       return redirect("/student")
    return redirect("/")
 
+@app.route('/searchstudent', methods=["POST"])
+def searchstudent():
+   if 'user' in session:
+      if request.method == "POST":
+         selectby = request.form['selectby']
+         searchvalue = request.form['searchvalue']
+         print(selectby,searchvalue)
+         con = sql.connect("static/test.db")
+         cur = con.cursor()
+         if selectby == 'enrollmentno':
+            cur.execute("select * from student where enrollmentno = ?",searchvalue)
+         elif selectby == 'name':
+            cur.execute("select * from student where name = ?",searchvalue)
+         elif selectby == 'emailid':
+            cur.execute("select * from student where email = ?",searchvalue)
+         a = cur.fetchall();
+         con.commit()
+         cur.close()
+         con.close()
+         print(a)
+   return "<h1>Student Searched</h1>"
+
 @app.route('/changepasst', methods=["POST"])
 def changepasst():
    if 'user' in session:
