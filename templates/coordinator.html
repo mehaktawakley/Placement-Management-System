@@ -1,12 +1,4 @@
 <!DOCTYPE html>
-
-<!-- 
-  Theme Name: Enlight
-  Theme URL: https://probootstrap.com/enlight-free-education-responsive-bootstrap-website-template
-  Author: ProBootstrap.com
-  Author URL: https://probootstrap.com
-  License: Released for free under the Creative Commons Attribution 3.0 license (probootstrap.com/license)
--->
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -30,11 +22,6 @@
         line-height: 40px;
       }
     </style>
-
-    <!--[if lt IE 9]>
-      <script src="js/vendor/html5shiv.min.js"></script>
-      <script src="js/vendor/respond.min.js"></script>
-    <![endif]-->
   </head>
   <body>
 
@@ -98,7 +85,7 @@
             <li onclick="f1()"><a href="#"><i class="icon-users"></i> Dashboard </a></li>
             <li onclick="f2()"><a href="#"><i class="icon-pen"></i> Create Event </a></li>
             <li onclick="f3()"><a href="#"><i class="icon-list"></i> Create List </a></li>
-            <li onclick="f4()"><a href="#"><i class="icon-search"></i> Search Student </a></li>
+            <li onclick="f4()" id="searchS"><a href="#"><i class="icon-search"></i> Search Student </a></li>
             <li onclick="f5()"><a href="#"><i class="icon-lock"></i> Change Password </a></li>
           </ul>
         </div><!-- /span-3 -->
@@ -330,15 +317,15 @@
             </form>
 
           <br/>
-
-            <table style="text-align:center; margin-top: 200px; padding-top: 10px" border="1">
+            {% if studentData %}
+            <table style="text-align:center; margin: 200px 0 100px; padding-top: 10px" border="1">
               <tr>
-                <td colspan="6">Student Details</td>
+                <td colspan="5">Student Details</td>
                 <td colspan="3">Percentage & Marksheets</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
               </tr>
-              <th>
+              <tr>
                 <td>Enrollment Number</td>
                 <td>Course & Section</td>
                 <td>Name</td>
@@ -349,9 +336,23 @@
                 <td>Till 4<sup>th</sup> Semester</td>
                 <td>Active Backlogs</td>
                 <td>Interested For Placements?</td>
-              </th>
+              </tr>
+              {% for d in data %}
+              <tr>
+                <td>{{d['enrollmentno']}}</td>
+                <td>{{d['course']}} {{d['section']}}</td>
+                <td>{{d['name']}}</td>
+                <td>{{d['email']}}</td>
+                <td>{{d['contactno']}}</td>
+                <td>{{d['classten']}}</td>
+                <td>{{d['classtwelve']}}</td>
+                <td>{{d['semone']}}</td>
+                <td>{{d['backlogs']}}</td>
+                <td>{{d['interested']}}</td>
+              </tr>
+              {% endfor %}
             </table>
-
+            {% endif %}
 
           </div>
 
@@ -472,8 +473,11 @@
         }
 
       </script>
-
-
+      {% if studentData %}
+        <script type="text/javascript">
+          document.getElementById('searchS').click();
+        </script>
+      {% endif %}
       <footer class="probootstrap-footer probootstrap-bg" style="clear: both;">
         <div class="container">
           <div class="row">

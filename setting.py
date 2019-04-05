@@ -272,12 +272,18 @@ def changepass():
 
 @app.route('/searchstudent', methods=["POST"])
 def searchstudent():
+   def dict_factory(cursor, row):
+    d = {}
+    for idx, col in enumerate(cursor.description):
+        d[col[0]] = row[idx]
+    return d
    if 'user' in session:
       if request.method == "POST":
          selectby = request.form['selectby']
          searchvalue = request.form['searchvalue']
          print(selectby,searchvalue)
          con = sql.connect("static/test.db")
+         con.row_factory = dict_factory
          cur = con.cursor()
          if selectby == 'enrollmentno':
             cur.execute("select * from student where enrollmentno = ?",(searchvalue,))
@@ -286,12 +292,14 @@ def searchstudent():
          elif selectby == 'emailid':
             cur.execute("select * from student where email = ?",(searchvalue,))
          a = cur.fetchall()
+         cur.execute("select email from coordinator where teacherid = ?",(session['enr'],))
+         output = cur.fetchone()['email']
          con.commit()
          cur.close()
          con.close()
          print(a)
-   return "<h1>Student Searched</h1>"
-
+   return render_template("coordinator.html",un=(session['user']).title(),eid=output,studentData=True,data=a)
+         
 @app.route('/changepasst', methods=["POST"])
 def changepasst():
    if 'user' in session:
