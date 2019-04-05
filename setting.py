@@ -18,12 +18,12 @@ def login_server():
       try:
          if len(enrollmentno) == 11:
             cur.execute("select password from student where enrollmentno = ?",(enrollmentno,))
-            a = cur.fetchone();
+            a = cur.fetchone()
             ta=str(a)
             output=ta[2:-3]
             print(output)
             cur.execute("select name from student where enrollmentno = ?",(enrollmentno,))
-            b = cur.fetchone();
+            b = cur.fetchone()
             cur.close()
             con.close()
             tb=str(b)
@@ -37,11 +37,11 @@ def login_server():
             return render_template("index.html",login_modal=True)
          else:
             cur.execute("select password from coordinator where teacherid = ?",(enrollmentno,))
-            a = cur.fetchone();
+            a = cur.fetchone()
             ta=str(a)
             output=ta[2:-3]
             cur.execute("select name from coordinator where teacherid = ?",(enrollmentno,))
-            b = cur.fetchone();
+            b = cur.fetchone()
             cur.close()
             con.close()
             tb=str(b)
@@ -119,7 +119,7 @@ def coordinator():
       con = sql.connect("static/test.db")
       cur = con.cursor()
       cur.execute("select email from coordinator where teacherid = ?",(session['enr'],))
-      a = cur.fetchone();
+      a = cur.fetchone()
       ta=str(a)
       output=ta[2:-3]
       cur.close()
@@ -259,7 +259,7 @@ def changepass():
          con = sql.connect("static/test.db")
          cur = con.cursor()
          cur.execute("select password from student where enrollmentno = ?",(session['enr'],))
-         a = cur.fetchone();
+         a = cur.fetchone()
          ta=str(a)
          output=ta[2:-3]
          if output == cpass and output != "":
@@ -280,12 +280,12 @@ def searchstudent():
          con = sql.connect("static/test.db")
          cur = con.cursor()
          if selectby == 'enrollmentno':
-            cur.execute("select * from student where enrollmentno = ?",searchvalue)
+            cur.execute("select * from student where enrollmentno = ?",(searchvalue,))
          elif selectby == 'name':
-            cur.execute("select * from student where name = ?",searchvalue)
+            cur.execute("select * from student where name like '%"+str(searchvalue)+"%'")
          elif selectby == 'emailid':
-            cur.execute("select * from student where email = ?",searchvalue)
-         a = cur.fetchall();
+            cur.execute("select * from student where email = ?",(searchvalue,))
+         a = cur.fetchall()
          con.commit()
          cur.close()
          con.close()
@@ -301,7 +301,7 @@ def changepasst():
          con = sql.connect("static/test.db")
          cur = con.cursor()
          cur.execute("select password from coordinator where teacherid = ?",(session['enr'],))
-         a = cur.fetchone();
+         a = cur.fetchone()
          ta=str(a)
          output=ta[2:-3]
          print(output)
