@@ -83,9 +83,11 @@
           <ul class="nav nav-pills nav-stacked" style="border-right:1px solid black;">
             <!--<li class="nav-header"></li>-->
             <li onclick="f1()"><a href="#"><i class="icon-users"></i> Dashboard </a></li>
-            <li onclick="f2()"><a href="#"><i class="icon-pen"></i> Create Event </a></li>
+            <li onclick="f2()"><a href="#"><i class="icon-pen"></i> Edit Events </a></li>
             <li onclick="f3()"><a href="#"><i class="icon-list"></i> Create List </a></li>
             <li onclick="f4()" id="searchS"><a href="#"><i class="icon-search"></i> Search Student </a></li>
+            <li onclick="f6()"><a href="#"><i class="icon-add-to-list"></i> Edit Recruiters </a></li>
+            <li onclick="f7()"><a href="#"><i class="icon-publish"></i> Post Information </a></li>
             <li onclick="f5()"><a href="#"><i class="icon-lock"></i> Change Password </a></li>
           </ul>
         </div><!-- /span-3 -->
@@ -356,6 +358,121 @@
 
           </div>
 
+
+          <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12" id="er" style="display: none">
+            <!-- Right -->
+              <a href="#"><strong><span class="fa fa-dashboard"></span> Edit Major Recruiters </strong></a>
+              <hr>
+    
+              <h2 id="addr" onclick="addr()" style="font-size: 24px;">Add A Recruiter</h2>
+              
+              <form class="form" action="/getlist" method="post" id="listof" style="display: none;">
+                  <div class="form-group">
+                    <div class="col-xs-12">
+                      <label for="listof"><h4>Get List Of:</h4></label>
+                      <br>
+                      <input type="radio" name="listof" placeholder="interested" value="Interested" required> Interested
+                      <br>
+                      <input type="radio" name="listof" placeholder="Not Interested" value="Not Interested" required> Not Interested
+                    </div>
+                  </div>
+                  <div class="form-group">
+                      <div class="col-xs-12">
+                        <br>
+                        <button class="btn btn-lg btn-success" type="submit">Submit</button>
+                        <button class="btn btn-lg" type="reset">Reset</button>
+                      </div>
+                    </div>
+              </form><br>
+              
+              <h2 id="editr" onclick="editr()" style="font-size: 24px;">Edit or Remove A Recruiter</h2>
+                
+              <form class="form" action="/createlist" method="post" id="eligiblelist" style="display: none;">
+                          <div class="form-group">
+                              <div class="col-xs-12">
+                                <label for="pursose"><h4>Purpose for Creating List</h4></label>
+                                <br>
+                                <input type="radio" name="purpose" id="purpose" placeholder="Company" value="For Company" required> For Company
+                                <br>
+                                <input type="radio" name="purpose" id="purpose" placeholder="Self-Reference" value="Self-Reference" required> For Self-Reference
+                              </div>
+                          </div>
+    
+                          <div class="form-group">                          
+                              <div class="col-xs-12">
+                                <label for="company"><h4>Mention Name of Company (If Applicable)</h4></label>
+                                  <input type="text" class="form-control" name="company">
+                              </div>
+                          </div>
+    
+                          <strong>Enter Eligibility Criteria</strong>
+    
+                          <div class="form-group">                          
+                              <div class="col-xs-6">
+                                <label for="college"><h4>Minimum College Percentage</h4></label>
+                                  <input type="number" class="form-control" name="college" placeholder="Enter minimum college percentage">
+                              </div>
+                          </div>
+    
+                          <div class="form-group">                          
+                              <div class="col-xs-6">
+                                <label for="backlogs"><h4>Backlogs Allowed</h4></label>
+                                  <input type="number" class="form-control" name="backlogs" placeholder="Enter minimum backlogs allowed">
+                              </div>
+                          </div>
+                          
+                          <div class="form-group">                          
+                              <div class="col-xs-6">
+                                <label for="pecent12"><h4>Minimum 12<sup>th</sup> Percentage</h4></label>
+                                  <input type="number" class="form-control" name="percent12" placeholder="Enter minimum class 12th percentage">
+                              </div>
+                          </div>
+    
+                          <div class="form-group">                          
+                              <div class="col-xs-6">
+                                <label for="pecent10"><h4>Minimum 10<sup>th</sup> Percentage</h4></label>
+                                  <input type="number" class="form-control" name="percent10" placeholder="Enter minimum class 10th percentage">
+                              </div>
+                          </div>
+    
+                          <div class="form-group">
+                               <div class="col-xs-12">
+                                    <br>
+                                    <button class="btn btn-lg btn-success" type="submit">Create</button>
+                                    <button class="btn btn-lg" type="reset">Reset</button>
+                                </div>
+                          </div>
+              </form>
+        </div>
+
+        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12" id="pi" style="display: none">
+          <!-- Right -->
+            <a href="#"><strong><span class="fa fa-dashboard"></span> Post Information </strong></a>
+            <hr>
+            <form class="form" action="/changepasst" method="post" id="placementForm">
+                        <div class="form-group">                        
+                            <div class="col-xs-6">
+                                <label for="cpass"><h4>Current Password:</h4></label>
+                                <input type="text" class="form-control" name="cpass" placeholder="Current Password" required>
+                            </div>
+                        </div>
+  
+                        <div class="form-group">                          
+                            <div class="col-xs-6">
+                              <label for="newpass"><h4>New Password:</h4></label>
+                                <input type="text" class="form-control" name="newpass"  placeholder="New Password" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                             <div class="col-xs-12">
+                                  <br>
+                                  <button class="btn btn-lg btn-success" type="submit">Save</button>
+                                  <button class="btn btn-lg" type="reset">Reset</button>
+                              </div>
+                        </div>
+            </form>
+          </div>
+
         <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12" id="cp" style="display: none">
         <!-- Right -->
           <a href="#"><strong><span class="fa fa-dashboard"></span> Change Password </strong></a>
@@ -388,6 +505,8 @@
 
 
       <script type="text/javascript">
+        var t = document.getElementById('er');
+        var u = document.getElementById('pi');
         var v = document.getElementById('ss');
         var w = document.getElementById('db');
         var x = document.getElementById('ce');
@@ -395,6 +514,8 @@
         var z = document.getElementById('cp');
         var a = document.getElementById('listof');
         var b = document.getElementById('eligiblelist');
+        var c = document.getElementById('addr');
+        var d = document.getElementById('editr');
 
 
         function f1(argument) {
@@ -405,6 +526,8 @@
             y.style.display = "none";
             z.style.display = "none";
             v.style.display = "none";
+            t.style.display = "none";
+            u.style.display = "none";
           }
         }
 
@@ -416,6 +539,8 @@
             y.style.display = "none";
             z.style.display = "none";
             v.style.display = "none";
+            t.style.display = "none";
+            u.style.display = "none";
           }
         }
 
@@ -427,6 +552,8 @@
             y.style.display = "block";
             z.style.display = "none";
             v.style.display = "none";
+            t.style.display = "none";
+            u.style.display = "none";
           }
         }
 
@@ -438,6 +565,8 @@
             y.style.display = "none"; 
             z.style.display = "none";
             v.style.display = "block";
+            t.style.display = "none";
+            u.style.display = "none";
           }
         }
 
@@ -449,6 +578,34 @@
             y.style.display = "none";
             z.style.display = "block";
             v.style.display = "none";
+            t.style.display = "none";
+            u.style.display = "none";
+          }
+        }
+
+        function f6(argument) {
+          if (t.style.display === "none") 
+          {
+            w.style.display = "none";
+            x.style.display = "none";
+            y.style.display = "none";
+            z.style.display = "none";
+            v.style.display = "none";
+            t.style.display = "block";
+            u.style.display = "none";
+          }
+        }
+
+        function f7(argument) {
+          if (u.style.display === "none") 
+          {
+            w.style.display = "none";
+            x.style.display = "none";
+            y.style.display = "none";
+            z.style.display = "none";
+            v.style.display = "none";
+            t.style.display = "none";
+            u.style.display = "block";
           }
         }
 
@@ -469,6 +626,26 @@
             a.style.display = "none";
             document.getElementById('get').style.color = "black";
             document.getElementById('create').style.color = "#6a56ee";
+          }
+        }
+
+        function addr(argument) {
+          if (c.style.display === "none") 
+          {
+            c.style.display = "block";
+            d.style.display = "none";
+            document.getElementById('addr').style.color = "#6a56ee";
+            document.getElementById('editr').style.color = "black";
+          }
+        }
+
+        function editr(argument) {
+          if (d.style.display === "none") 
+          {
+            c.style.display = "none";
+            d.style.display = "block";
+            document.getElementById('editr').style.color = "#6a56ee";
+            document.getElementById('addr').style.color = "black";
           }
         }
 
