@@ -339,7 +339,7 @@ def add_company():
          salary = request.form['salary']
          other = request.form['other']
          responsibility = request.form['responsibility']
-         print(name, cdetails, roleoffered, eligibility, location, salary, other, responsibility)
+         print(name, cdetails, roleoffered, eligibility, location, salary, other, responsibility,request.files.getlist("clogo"))
          
          for upload in request.files.getlist("clogo"):
             print(upload)
