@@ -321,6 +321,28 @@ def changepasst():
       return redirect("/coordinator")
    return redirect("/")
 
+@app.route('/add_company', methods=["POST"])
+def add_company():
+   if 'user' in session:
+      if request.method == "POST":
+         name = request.form['cname']
+         cdetails = request.form['cdetails']
+         roleoffered = request.form['roleoffered']
+         eligibility = request.form['eligibility']
+         location = request.form['location']
+         salary = request.form['salary']
+         other = request.form['other']
+         responsibility = request.form['responsibility']
+         print(name, cdetails, roleoffered, eligibility, location, salary, other, responsibility)
+         con = sql.connect("static/test.db")
+         cur = con.cursor()
+         cur.execute("INSERT INTO company(name, cdetails, roleoffered, eligibility, location, salary, other, responsibility) VALUES(?,?,?,?,?,?,?,?)",(name,cdetails,roleoffered,eligibility,location,salary,other,responsibility))
+         con.commit()
+         cur.close()
+         con.close()
+      return redirect("/coordinator")
+   return redirect("/")
+
 @app.route('/upload', methods=["POST"])
 def upload():
    target = os.path.join(APP_ROOT, 'static/Upload')

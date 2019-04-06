@@ -363,29 +363,87 @@
             <!-- Right -->
               <a href="#"><strong><span class="fa fa-dashboard"></span> Edit Major Recruiters </strong></a>
               <hr>
-    
-              <h2 onclick="addr()" style="font-size: 24px;">Add A Recruiter</h2>
+              <p>*Enter Multiple Details Comma Separated</p>
+
+              <h2 onclick="addr()" class="col-xs-12" style="font-size: 24px;">Add A Recruiter</h2>
               
-              <form class="form" action="/getlist" method="post" id="addr" style="display: none;">
-                  <div class="form-group">
+              <form class="form" action="/add_company" method="post" id="addr" style="display: none;">
+                <div class="form-group">                        
+                    <div class="col-xs-6">
+                        <label for="cname"><h4>Company</h4></label>
+                        <input type="text" class="form-control" name="cname" id="cname" placeholder="Enter name of company"  required>
+                    </div>
+                </div>
+
+                <div class="form-group">                          
                     <div class="col-xs-12">
-                      <label for="listof"><h4>Get List Of:</h4></label>
-                      <br>
-                      <input type="radio" name="listof" placeholder="interested" value="Interested" required> Interested
-                      <br>
-                      <input type="radio" name="listof" placeholder="Not Interested" value="Not Interested" required> Not Interested
+                        <label for="cdetails"><h4>Company Details</h4></label>
+                        <textarea cols="30" rows="5" type="text" class="form-control" id="cdetails" name="cdetails" placeholder="Give in brief the interview process." required></textarea>
                     </div>
-                  </div>
-                  <div class="form-group">
-                      <div class="col-xs-12">
-                        <br>
-                        <button class="btn btn-lg btn-success" type="submit">Submit</button>
-                        <button class="btn btn-lg" type="reset">Reset</button>
-                      </div>
+                </div>
+                
+                <div class="form-group">                          
+                    <div class="col-xs-6">
+                        <label for="roleoffered"><h4>Role Offered</h4></label>
+                        <input type="text" class="form-control" name="roleoffered" id="roleoffered" placeholder="Enter role offered" required>
                     </div>
-              </form><br>
+                </div>
+
+                <div class="form-group">                          
+                    <div class="col-xs-6">
+                        <label for="text"><h4>For Courses</h4></label>
+                        <input type="text" class="form-control" name="eligibility" id="eligibility" placeholder="Enter eligible courses " required>
+                    </div>
+                </div>
+
+                <div class="form-group">                          
+                    <div class="col-xs-6">
+                        <label for="location"><h4>Location</h4></label>
+                        <input type="text" class="form-control" name="location" id="location" placeholder="Mention location" required>
+                    </div>
+                </div>
+
+                <div class="form-group">                          
+                    <div class="col-xs-6">
+                        <label for="text"><h4>Expected Salary</h4></label>
+                        <input type="text" class="form-control" name="salary" id="salary" placeholder="Expected salary and details" required>
+                    </div>
+                </div>
+
+                <div class="form-group">                          
+                    <div class="col-xs-12">
+                        <label for="text"><h4>Other Eligibility Details</h4></label>
+                        <textarea cols="30" rows="5" type="text" class="form-control" id="other" name="other" placeholder="Enter other eligibility details such as required percentage, number of backlogs allowed etc." required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">                          
+                    <div class="col-xs-12">
+                        <label for="responsibility"><h4>Key Responsibilities</h4></label>
+                        <textarea cols="30" rows="5" type="text" class="form-control" id="responsibility" name="responsibility" placeholder="Enter other eligibility details such as required percentage, number of backlogs allowed etc." required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">                        
+                    <div class="col-xs-6">
+                        <label for="logo"><h4>Company Logo</h4></label>
+                        <input type="file" class="form-control" name="clogo" accept="image/*" max="1">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-12">
+                         <br>
+                         <button class="btn btn-lg btn-success" type="submit">Submit</button>
+                         <button class="btn btn-lg" type="reset">Reset</button>
+                     </div>
+               </div>
+                
+              </form>
               
-              <h2 onclick="editr()" style="font-size: 24px;">Edit or Remove A Recruiter</h2>
+              <br>
+              
+              <h2 onclick="editr()" class="col-xs-12" style="font-size: 24px;">Edit or Remove A Recruiter</h2>
                 
               <form class="form" action="/createlist" method="post" id="editr" style="display: none;">
                           <div class="form-group">
