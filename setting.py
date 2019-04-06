@@ -365,6 +365,24 @@ def add_company():
       return redirect("/coordinator")
    return redirect("/")
 
+@app.route('/postinfo', methods=["POST"])
+def postinfo():
+   if 'user' in session:
+      if request.method == "POST":
+         title = request.form['title']
+         details = request.form['details']
+         date = request.form['date']
+         print(title,details,date)
+         con = sql.connect("static/test.db")
+         cur = con.cursor()
+         cur.execute("INSERT INTO information(title, details, date) VALUES(?,?,?)",(title,details,date))
+         con.commit()
+         cur.close()
+         con.close()
+      return redirect("/coordinator")
+   return redirect("/")
+
+
 @app.route('/upload', methods=["POST"])
 def upload():
    target = os.path.join(APP_ROOT, 'static/Upload')
