@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, request, g, session, send_file, send_from_directory
-import sqlite3 as sql,os,csv
+import sqlite3 as sql,os,csv,json
 
 app=Flask(__name__)
 app.config["CACHE_TYPE"] = "null"
@@ -126,6 +126,18 @@ def coordinator():
       con.close()
       return render_template("coordinator.html",un=(session['user']).title(),eid=output)
    return redirect("/")
+
+@app.route('/getRec', methods=["POST"])
+def getRec():
+   if 'user' in session:
+      con = sql.connect("static/test.db")
+      cur = con.cursor()
+      cur.execute("select name,companyid from company")
+      a = cur.fetchall()
+      print(a)
+      cur.close()
+      con.close()
+      return json.dumps({'status':200,'companyDetails':a})
 
 @app.route('/getlist', methods=["POST"])
 def getlist():
