@@ -323,6 +323,12 @@ def changepasst():
 
 @app.route('/add_company', methods=["POST"])
 def add_company():
+   target = os.path.join(APP_ROOT, 'static/img/img')
+   print(target)
+   
+   if not os.path.isdir(target):
+      os.mkdir(target)
+   
    if 'user' in session:
       if request.method == "POST":
          name = request.form['cname']
@@ -334,9 +340,25 @@ def add_company():
          other = request.form['other']
          responsibility = request.form['responsibility']
          print(name, cdetails, roleoffered, eligibility, location, salary, other, responsibility)
+         
+         for upload in request.files.getlist("clogo"):
+            print(upload)
+            print("{} is the file name".format(upload.filename))
+            logo = upload.filename
+            ext = os.path.splitext(logo)[1]
+            if (ext == ".jpg") or (ext == ".png") or (ext == ".jpeg"):
+               print("File supported moving on...")
+            else:
+               render_template("<h1>File Not Supported</h1>")
+        
+            destination = "/".join([target, logo])
+            print("Accept incoming file:", logo)
+            print("Save to:",destination)
+            upload.save(destination)
+
          con = sql.connect("static/test.db")
          cur = con.cursor()
-         cur.execute("INSERT INTO company(name, cdetails, roleoffered, eligibility, location, salary, other, responsibility) VALUES(?,?,?,?,?,?,?,?)",(name,cdetails,roleoffered,eligibility,location,salary,other,responsibility))
+         cur.execute("INSERT INTO company(name, cdetails, roleoffered, eligibility, location, salary, other, responsibility, image) VALUES(?,?,?,?,?,?,?,?,?)",(name,cdetails,roleoffered,eligibility,location,salary,other,responsibility,logo))
          con.commit()
          cur.close()
          con.close()
