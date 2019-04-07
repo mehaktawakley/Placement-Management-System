@@ -454,7 +454,7 @@
     
                           <table id="companyD" style="margin: 200px 0 100px; padding-top: 10px; width:40%;" border="1">
                             <tr>
-                              <th>Company Name</th>
+                              <th class="editCompany">Company Name</th>
                             </tr>
                           </table>
     
@@ -533,7 +533,29 @@
         </div>
 
       </section>
-
+      <div class="modal fade" id="companyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">        
+            <div class="modal-body">
+              <input type="text" class="modal-title" id="eventModalLabel">
+              <span class="probootstrap-date"><i class="icon-user"></i>About the Company: <textarea id="aboutComapny"></textarea></span>
+              <span class="probootstrap-date"><i class="icon-calendar"></i>Role Offered: <input type="text" id="roleOff"></span>
+              <span class="probootstrap-location"><i class="icon-location2"></i>Eligibility: <input type="text" id="compEligibility"></span>
+              <span class="probootstrap-location"><i class="icon-tag"></i>Location: <input type="text" id="compLoc"></span>
+              <span class="probootstrap-location"><i class="icon-mic"></i>Salary Offered: <input type="text" id="salaryOffered"></span>
+              <span class="probootstrap-location"><i class="icon-books"></i>Education and Work Experience: <input type="text" id="edWE"></span>
+              <span class="probootstrap-location"><i class="icon-link2"></i>Roles and Responsibilty: <input type="text" id="rolesResp"></span>
+              <input type="text" id="cId" hidden>
+              <button type="button" class="btn btn-secondary" id="remCompany">Remove</button>
+              <button type="button" class="btn btn-secondary" id="editComp">Submit</button>
+            </div>
+  
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <script type="text/javascript">
         var t = document.getElementById('er');
