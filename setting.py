@@ -134,10 +134,55 @@ def getRec():
       cur = con.cursor()
       cur.execute("select name,companyid from company")
       a = cur.fetchall()
-      print(a)
       cur.close()
       con.close()
       return json.dumps({'status':200,'companyDetails':a})
+
+@app.route('/getRecDetails', methods=["POST"])
+def getRecDetails():
+   if 'user' in session:
+      cID = request.form['cID']
+      con = sql.connect("static/test.db")
+      cur = con.cursor()
+      cur.execute("select name,cdetails,roleoffered,eligibility,location,salary,other,responsibility from company where companyid = ?",(cID,))
+      a = cur.fetchone()
+      cur.close()
+      con.close()
+      return json.dumps({'status':200,'companyDetails':a})
+
+@app.route('/remRec', methods=["POST"])
+def remRec():
+   if 'user' in session:
+      cID = request.form['cID']
+      print("Done")
+      con = sql.connect("static/test.db")
+      cur = con.cursor()
+      cur.execute("DELETE from company where companyid = ?",(cID,))
+      con.commit()
+      cur.close()
+      con.close()
+      return json.dumps({'status':200})
+
+@app.route('/updateRec', methods=["POST"])
+def updateRec():
+   if 'user' in session:
+      cName = request.form['cName']
+      aboutComapny = request.form['aboutComapny']
+      role = request.form['role']
+      eligibility = request.form['eligibility']
+      compLoc = request.form['compLoc']
+      salaryOffered = request.form['salaryOffered']
+      edWE = request.form['edWE']
+      rolesResp = request.form['rolesResp']
+      cID = request.form['id']
+
+      con = sql.connect("static/test.db")
+      cur = con.cursor()
+      cur.execute("UPDATE company SET name = ?, cdetails = ?, roleoffered = ?, eligibility = ?, location = ?, salary = ?, other = ?, responsibility = ? where companyid = ?",(cName,aboutComapny,role,eligibility,compLoc,salaryOffered,edWE,rolesResp,cID))
+      con.commit()
+      cur.close()
+      con.close()
+      return json.dumps({'status':200})
 
 @app.route('/getlist', methods=["POST"])
 def getlist():
