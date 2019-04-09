@@ -35,8 +35,8 @@ $( document ).ready(function() {
             $("#compEligibility").val(result["companyDetails"][3]);
             $("#compLoc").val(result["companyDetails"][4]);
             $("#salaryOffered").val(result["companyDetails"][5]);
-            $("#edWE").val(result["companyDetails"][6]);
-            $("#rolesResp").val(result["companyDetails"][7]);
+            $("#edWE").text(result["companyDetails"][6]);
+            $("#rolesResp").text(result["companyDetails"][7]);
             $("#cId").val(id);
             },
             error: function(error){

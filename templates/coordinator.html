@@ -537,21 +537,24 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">        
             <div class="modal-body">
-              <input type="text" class="modal-title" id="eventModalLabel">
-              <span class="probootstrap-date"><i class="icon-user"></i>About the Company: <textarea id="aboutComapny"></textarea></span>
-              <span class="probootstrap-date"><i class="icon-calendar"></i>Role Offered: <input type="text" id="roleOff"></span>
-              <span class="probootstrap-location"><i class="icon-location2"></i>Eligibility: <input type="text" id="compEligibility"></span>
-              <span class="probootstrap-location"><i class="icon-tag"></i>Location: <input type="text" id="compLoc"></span>
-              <span class="probootstrap-location"><i class="icon-mic"></i>Salary Offered: <input type="text" id="salaryOffered"></span>
-              <span class="probootstrap-location"><i class="icon-books"></i>Education and Work Experience: <input type="text" id="edWE"></span>
-              <span class="probootstrap-location"><i class="icon-link2"></i>Roles and Responsibilty: <input type="text" id="rolesResp"></span>
+              <span class="probootstrap-section"><i class="icon-office" style="padding-right:10px;"></i><input type="text" class="modal-title" id="eventModalLabel" style="margin-bottom: 10px"></span>
+              <span class="probootstrap-date"><i class="icon-user"></i>About the Company: </span>
+              <textarea id="aboutComapny" cols="68" rows="10" style="margin-bottom: 10px"></textarea>
+              <span class="probootstrap-date"><i class="icon-pin"></i>Role Offered: <input type="text" id="roleOff" size="53" style="margin-bottom: 10px"></span>
+              <span class="probootstrap-location" style="margin-bottom: 10px"><i class="icon-users2"></i>Eligibility: <input type="text" id="compEligibility" size="56"></span>
+              <span class="probootstrap-location"><i class="icon-location2"></i>Location: <input type="text" id="compLoc" size="56" style="margin-bottom: 10px"></span>
+              <span class="probootstrap-location"><i class="icon-wallet2"></i>Salary Offered: <input type="text" id="salaryOffered" style="margin-bottom: 10px" size="51"></span>
+              <span class="probootstrap-location"><i class="icon-books"></i>Education and Work Experience:</span>
+              <textarea id="edWE" cols="68" rows="10" style="margin-bottom: 10px"></textarea>
+              <span class="probootstrap-location"><i class="icon-link2"></i>Roles and Responsibilty:</span> 
+              <textarea type="text" id="rolesResp" cols="68" rows="10" style="margin-bottom: 10px"></textarea>
               <input type="text" id="cId" hidden>
-              <button type="button" class="btn btn-secondary" id="remCompany">Remove</button>
-              <button type="button" class="btn btn-secondary" id="editComp">Submit</button>
+              <button type="button" class="btn btn-danger" id="remCompany">Remove</button>
+              <button type="button" class="btn btn-success" id="editComp">Submit</button>
             </div>
   
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
