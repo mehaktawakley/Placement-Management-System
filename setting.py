@@ -72,7 +72,19 @@ def logout():
 
 @app.route("/")
 def index():
-	return render_template("index.html")
+   con = sql.connect("static/test.db")
+   cur = con.cursor()
+   cur.execute("DELETE from information where lastdate < (select date('now'))")
+   cur.execute("select infoid,title,details from information")
+   inf = cur.fetchall()
+   inf = [i for i in inf]
+   for i in inf:
+      for j in i:
+         print(j)
+      print()
+   cur.close()
+   con.close()
+   return render_template("index.html",result=inf)
 
 @app.route('/about')
 def about():
@@ -432,7 +444,7 @@ def postinfo():
          print(title,details,date)
          con = sql.connect("static/test.db")
          cur = con.cursor()
-         cur.execute("INSERT INTO information(title, details, date) VALUES(?,?,?)",(title,details,date))
+         cur.execute("INSERT INTO information(title, details, lastdate) VALUES(?,?,?)",(title,details,date))
          con.commit()
          cur.close()
          con.close()
