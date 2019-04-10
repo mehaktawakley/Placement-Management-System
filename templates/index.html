@@ -101,13 +101,13 @@
     </div>
 
     <div class="row">
-      {% for r in result %}
       <div class="col-xs-12"  style="display:inline-block">
-        <a a data-toggle="modal" data-target="#infoModal{{r[0]}}" style="color: inherit;">
-          <marquee>{{r[1]}}</marquee>
-        </a>
+        <marquee>
+        {% for r in result %}
+          <a a data-toggle="modal" data-target="#infoModal{{r[0]}}" style="color: inherit;margin-right:100px;"> {{r[1]}} </a>
+        {% endfor %}
+      </marquee>
       </div>
-      {% endfor %}
     </div>
 
     {% for r in result %}
