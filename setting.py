@@ -187,7 +187,6 @@ def updateRec():
       edWE = request.form['edWE']
       rolesResp = request.form['rolesResp']
       cID = request.form['id']
-
       con = sql.connect("static/test.db")
       cur = con.cursor()
       cur.execute("UPDATE company SET name = ?, cdetails = ?, roleoffered = ?, eligibility = ?, location = ?, salary = ?, other = ?, responsibility = ? where companyid = ?",(cName,aboutComapny,role,eligibility,compLoc,salaryOffered,edWE,rolesResp,cID))
